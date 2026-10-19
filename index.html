@@ -1,0 +1,1938 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101010">
+<meta name="description" content="《日常解壓大作戰》全民生活微運動暨沉浸式肌群舒緩光雕展企劃。看見體內緊繃，一動身體發光。">
+<title>日常解壓大作戰 — MOVE. MELT. RELEASE.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap">
+<style>
+:root{
+  --violet:#713bff;
+  --lime:#b8ff2c;
+  --black:#101010;
+  --paper:#f4f3ee;
+  --white:#fff;
+  --red:#ff315b;
+  --green:#75f2a1;
+  --mono:'DM Mono',monospace;
+  --sans:'Manrope','Noto Sans TC',sans-serif;
+  --tc:'Noto Sans TC','Manrope',sans-serif;
+  --rule:rgba(16,16,16,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(73px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--paper);color:var(--black);font-family:var(--tc);color-scheme:light;font-size:15px;line-height:1.8}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+
+.site-warning{
+  height:32px;
+  background:var(--lime);
+  padding:0 5vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--black);
+  font:600 12px var(--mono);
+  letter-spacing:.04em;
+}
+
+.nav{
+  height:calc(73px + env(safe-area-inset-top,0px));
+  padding:env(safe-area-inset-top,0px) 5vw 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--black);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:20;
+  border-bottom:1px solid #444;
+}
+.brand{font-weight:900;font-size:19px;letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
+.brand-icon{color:var(--lime);font-size:26px}
+.brand small{display:block;color:#aaa;font:500 11px var(--mono);letter-spacing:.04em;margin-left:8px;margin-top:2px}
+.nav nav{display:flex;gap:26px;font-size:14px;color:#ddd;font-weight:600}
+.nav nav a:hover{color:var(--lime)}
+.nav-button{font-size:12px;font-weight:700;border:1.5px solid #888;padding:10px 16px;border-radius:4px;transition:.2s}
+.nav-button:hover{border-color:var(--lime);color:var(--lime)}
+.nav-button b{color:var(--lime);margin-left:10px}
+.menu-toggle{display:none;color:white;border:0;background:none;font-size:24px}
+
+/* HERO 區塊 */
+.hero{
+  position:relative;
+  background:var(--violet);
+  color:white;
+  padding:0 5vw;
+  overflow:hidden;
+  min-height:700px;
+}
+.hero-grid-mark{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(90deg,#000,transparent 90%);
+}
+.hero-info{
+  height:48px;
+  border-bottom:1px solid rgba(255,255,255,.35);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  font:600 12px var(--mono);
+  letter-spacing:.08em;
+}
+.hero-main{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  min-height:580px;
+  align-items:center;
+  position:relative;
+  gap:40px;
+}
+.hero-copy{padding:40px 0 50px;z-index:2}
+.eyebrow{font:700 12px var(--mono);letter-spacing:.12em;display:flex;align-items:center;gap:9px;text-transform:uppercase}
+.eyebrow i{width:9px;height:9px;border-radius:50%;background:var(--lime);display:inline-block;box-shadow:0 0 12px var(--lime)}
+.eyebrow.dark i{background:var(--violet);box-shadow:0 0 12px var(--violet)}
+.hero h1{font-size:clamp(62px,8.5vw,118px);line-height:.9;letter-spacing:-.08em;margin:28px 0 20px;font-weight:900}
+.hero h1>span{color:var(--lime)}
+.title-star{font-size:.36em;vertical-align:top;margin-left:8px;display:inline-block;animation:rotate 16s linear infinite}
+.hero-lead{font-size:24px;font-weight:800;line-height:1.5;letter-spacing:-.03em;margin:0 0 16px}
+.hero-desc{max-width:480px;font-size:14.5px;line-height:1.9;color:#e8e2ff}
+.hero-ctas{display:flex;gap:14px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 22px;font-size:13px;font-weight:700;border-radius:6px;transition:.2s}
+.btn:hover{transform:translateY(-3px)}
+.btn-lime{background:var(--lime);color:var(--black)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.75);color:white}
+.btn span{font-size:16px}
+
+/* HERO 視覺圖卡：直立站姿、痠痛符號人體剪影 */
+.hero-visual{
+  height:500px;
+  position:relative;
+  overflow:hidden;
+  background:var(--lime);
+  color:var(--black);
+  box-shadow:14px 14px 0 var(--black);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-visual:before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(113,59,255,.18),transparent 65%),linear-gradient(135deg,transparent 48%,rgba(113,59,255,.15) 49%,transparent 50%);
+  mix-blend-mode:multiply;
+}
+.hero-standing-svg{
+  width:100%;
+  height:94%;
+  position:relative;
+  z-index:3;
+  filter:drop-shadow(0 10px 25px rgba(16,16,16,0.35));
+}
+.visual-caption,.visual-coordinate,.visual-label{position:absolute;z-index:5;font:600 11px var(--mono);letter-spacing:.05em}
+.cap-top{top:16px;left:18px}
+.cap-bottom{bottom:16px;left:18px}
+.visual-coordinate{top:16px;right:18px;text-align:right}
+.visual-label{right:16px;bottom:16px;background:var(--black);color:var(--lime);padding:7px 12px;border-radius:4px;font-weight:700}
+
+.hero-bottom{
+  height:52px;
+  border-top:1px solid rgba(255,255,255,.35);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:relative;
+  font:600 12px var(--mono);
+  letter-spacing:.06em;
+}
+.scroll-hint{color:var(--lime)}
+
+/* 跑馬燈：加速至 14s */
+.ticker{
+  background:var(--lime);
+  height:46px;
+  overflow:hidden;
+  white-space:nowrap;
+  display:flex;
+  align-items:center;
+  font:700 14px var(--mono);
+  letter-spacing:.04em;
+}
+.ticker>div{min-width:max-content;animation:marquee 14s linear infinite}
+.ticker b{font-family:var(--tc);font-weight:900}
+.ticker em{font-style:normal;color:var(--violet);font-weight:700}
+
+/* 企劃背景與核心概念 */
+.section{padding-left:8vw;padding-right:8vw}
+.section-head{display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid var(--rule);padding:16px 0}
+.section-head.light{border-color:#555}
+.index{font:700 12px var(--mono);color:#777}
+.light .index{color:#bbb}
+
+.origin-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin:35px 0 50px;
+  background:#fff;
+  padding:36px 40px;
+  border-radius:12px;
+  border:1.5px solid #ded8cb;
+  border-left:6px solid var(--violet);
+  box-shadow:0 8px 24px rgba(0,0,0,0.04);
+}
+.origin-box h3{font-size:22px;margin:0 0 12px;letter-spacing:-.03em;font-weight:800;color:var(--violet)}
+.origin-box p{font-size:14.5px;line-height:2;color:#444;margin:0}
+
+/* 核心概念排版：緊湊舒適、兩欄平滑對齊 */
+.idea-layout{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:50px;
+  align-items:center;
+  margin:40px 0 50px;
+}
+.idea h2,.missions-title h2,.impact h2{font-size:clamp(42px,5.5vw,76px);line-height:1.05;letter-spacing:-.06em;margin:0;font-weight:900}
+.idea h2 em,.missions-title h2 em,.impact h2 em{font-style:normal;color:var(--violet)}
+.idea-copy{max-width:none}
+.idea-quote{font-size:23px;font-weight:800;line-height:1.55;color:var(--violet);border-left:5px solid var(--lime);padding-left:18px;margin-bottom:16px}
+.idea-copy>p:not(.idea-quote){font-size:14.5px;line-height:2;color:#333}
+.idea-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.idea-tags span{background:#fff;border:1.5px solid #ccc;padding:8px 14px;border-radius:6px;font-size:13px;font-weight:600}
+
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1.5px solid var(--black);
+  border-bottom:1.5px solid var(--black);
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:70px;
+}
+.principles article{padding:26px 28px;border-right:1px solid #e0ded6}
+.principles article:last-child{border:0}
+.principles span{font:700 12px var(--mono);letter-spacing:.07em;color:var(--violet)}
+.principles h3{font-size:23px;margin:18px 0 10px;font-weight:800}
+.principles p{font-size:14px;color:#555;margin:0;line-height:1.85}
+
+/* 互動預演區 */
+.interactive{background:var(--black);color:white;padding-top:80px;padding-bottom:80px}
+.play-intro{display:flex;justify-content:space-between;align-items:flex-end;margin:40px 0 32px}
+.play-intro h2,.journey-title h2{font-size:clamp(46px,6vw,78px);line-height:.96;letter-spacing:-.06em;margin:0}
+.play-intro h2 em,.journey-title h2 em{font-style:normal;color:var(--lime)}
+.play-intro>p{max-width:440px;font-size:14px;line-height:1.9;color:#bbb;margin:0}
+
+.flow-steps{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+  margin-bottom:28px;
+  background:#1a1c1d;
+  border:1px solid #363a3d;
+  border-radius:8px;
+  padding:18px 22px;
+}
+.flow-step-item{font-size:12.5px;line-height:1.6;color:#ccc}
+.flow-step-item b{display:block;color:var(--lime);font:700 13px var(--mono);margin-bottom:4px}
+
+.play-board{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid #444;border-radius:10px;overflow:hidden;min-height:540px;background:#141517}
+.body-panel,.draw-panel{padding:24px}
+.body-panel{border-right:1px solid #444}
+.panel-top{height:30px;display:flex;justify-content:space-between;align-items:center;color:#aaa;font:600 12px var(--mono)}
+.live{color:var(--lime);font-size:11px}
+.live i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);margin-right:6px}
+.body-stage{height:355px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at center,rgba(113,59,255,.36),transparent 65%),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;border-radius:8px}
+.body-map{height:100%;position:relative;z-index:2}
+.body-shape{fill:#22252a;stroke:#b8ff2c;stroke-width:2.2}
+.body-joints{fill:none;stroke:#713bff;stroke-width:8;stroke-linecap:round}
+.zone{cursor:pointer}
+.zone circle{fill:var(--red);stroke:white;stroke-width:1.5;opacity:.75;transition:.2s}
+.zone text{font:700 11px var(--tc);fill:white;text-anchor:middle}
+.zone:hover circle,.zone.selected circle{r:25;opacity:1;filter:drop-shadow(0 0 12px var(--red));animation:pulse 1s ease-in-out infinite alternate}
+.body-hint{position:absolute;bottom:10px;left:12px;font:600 11px var(--mono);color:#bbb}
+.body-glow{position:absolute;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(255,49,91,.7),transparent 70%);top:22%;left:50%;transform:translateX(-50%);transition:.3s}
+.zone-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.zone-button{background:#1f2227;color:white;border:1px solid #444;text-align:left;padding:12px 14px;font-size:13px;font-weight:600;border-radius:6px;transition:.2s}
+.zone-button b{float:right;color:var(--lime)}
+.zone-button.active{border-color:var(--lime);color:var(--lime);background:#252a22}
+
+.draw-panel{display:flex;flex-direction:column}
+.canvas-wrap{height:355px;position:relative;background:#17181c;overflow:hidden;border:1px solid #333;border-radius:8px;touch-action:none}
+.canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%;z-index:2;touch-action:none;cursor:crosshair}
+.canvas-guide{position:absolute;z-index:1;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#bbb;gap:8px;pointer-events:none;text-align:center}
+.guide-plus{font:30px var(--mono);color:var(--lime);border:1.5px dashed #777;width:52px;height:52px;display:grid;place-items:center;border-radius:50%}
+.canvas-guide b{font-size:15px}
+.canvas-guide small{font:12px var(--mono)}
+.canvas-guide.hidden{opacity:0}
+.canvas-top-label,.canvas-bottom-label{position:absolute;z-index:3;font:600 11px var(--mono);color:#888;pointer-events:none}
+.canvas-top-label{top:12px;left:12px}
+.canvas-bottom-label{bottom:12px;right:12px}
+
+/* 貼圖覆蓋操作層（支援拖曳與調整大小） */
+.sticker-layer{
+  position:absolute;
+  z-index:4;
+  cursor:move;
+  user-select:none;
+  touch-action:none;
+  display:inline-block;
+  transform:translate(-50%, -50%);
+}
+.sticker-layer.selected{
+  outline:2px dashed var(--lime);
+  outline-offset:4px;
+}
+.sticker-layer svg, .sticker-layer img{
+  width:100%;
+  height:100%;
+  display:block;
+  pointer-events:none;
+}
+.sticker-del-btn{
+  position:absolute;
+  top:-12px;
+  right:-12px;
+  width:22px;
+  height:22px;
+  background:var(--red);
+  color:#fff;
+  border-radius:50%;
+  font-size:12px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  box-shadow:0 0 8px rgba(255,49,91,0.8);
+  border:1px solid #fff;
+}
+
+/* 貼圖大小調節條 */
+.sticker-scale-bar{
+  display:none;
+  align-items:center;
+  gap:10px;
+  padding:6px 12px;
+  background:#1a1c22;
+  border:1px solid #444;
+  border-radius:6px;
+  font-size:11px;
+  color:#bbb;
+}
+.sticker-scale-bar.show{display:flex}
+.sticker-scale-bar input[type="range"]{
+  accent-color:var(--lime);
+  cursor:pointer;
+  width:110px;
+}
+
+.draw-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+  position:relative;
+  flex-wrap:wrap;
+}
+.upload-button,.clear-button,.confirm-btn{
+  font-size:12px;
+  font-weight:700;
+  border:1.5px solid #555;
+  padding:8px 14px;
+  color:white;
+  background:transparent;
+  cursor:pointer;
+  border-radius:6px;
+  transition:.2s;
+}
+.upload-button:hover,.clear-button:hover{border-color:var(--lime);color:var(--lime)}
+.upload-button.active{background:var(--lime);color:var(--black);border-color:var(--lime)}
+.confirm-btn{
+  background:linear-gradient(135deg, var(--lime), #8ceb00);
+  color:var(--black);
+  border-color:var(--lime);
+  margin-left:auto;
+  box-shadow:0 0 14px rgba(184,255,44,0.35);
+}
+.confirm-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(184,255,44,0.6);
+}
+
+/* 快速貼圖選擇抽屜 */
+.sticker-picker{
+  display:none;
+  position:absolute;
+  bottom:58px;
+  left:0;
+  background:#1a1c22;
+  border:1.5px solid var(--lime);
+  border-radius:10px;
+  padding:12px 14px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.7);
+  z-index:10;
+  gap:12px;
+  align-items:center;
+}
+.sticker-picker.show{display:flex}
+.sticker-opt{
+  background:#262a33;
+  border:1px solid #485060;
+  border-radius:8px;
+  padding:6px 10px;
+  cursor:pointer;
+  transition:.2s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  color:white;
+}
+.sticker-opt:hover{border-color:var(--lime);background:#2c3328;transform:translateY(-2px)}
+.sticker-opt svg{width:34px;height:34px}
+.sticker-opt span{font:700 10px var(--mono);color:#bbb}
+
+.sticker-divider{
+  width:1px;
+  height:44px;
+  background:#3b4250;
+  margin:0 2px;
+}
+.custom-sticker-btn{
+  background:#202530;
+  border:1px dashed var(--lime);
+  border-radius:8px;
+  padding:6px 12px;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  font-size:10px;
+  font-weight:700;
+  transition:.2s;
+}
+.custom-sticker-btn:hover{background:rgba(184,255,44,0.15)}
+.custom-sticker-btn svg{width:20px;height:20px;stroke:var(--lime)}
+
+/* 自己畫貼圖的小畫板彈窗 */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(5px);
+  z-index:999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+}
+.modal-overlay.open{display:flex}
+.modal-card{
+  background:#1c1e24;
+  border:2px solid var(--lime);
+  border-radius:12px;
+  padding:24px;
+  width:min(90vw, 360px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.8);
+}
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+}
+.modal-header h4{
+  margin:0;
+  font-size:16px;
+  color:var(--lime);
+  font-family:var(--mono);
+}
+.modal-close{
+  color:#aaa;
+  font-size:18px;
+  cursor:pointer;
+  background:none;
+  border:none;
+}
+.modal-close:hover{color:#fff}
+.custom-paint-box{
+  width:100%;
+  height:240px;
+  background:#111;
+  border:1px solid #444;
+  border-radius:8px;
+  touch-action:none;
+}
+.modal-actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+  justify-content:flex-end;
+}
+
+/* 光雕特效素材展示櫃 */
+.effects-library-shelf{
+  margin-top:24px;
+  background:#16181d;
+  border:1px solid #333;
+  border-radius:10px;
+  padding:18px 22px;
+}
+.shelf-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+  font:700 12px var(--mono);
+  color:var(--lime);
+}
+.shelf-list{
+  display:flex;
+  gap:14px;
+  overflow-x:auto;
+  padding-bottom:8px;
+}
+.shelf-item{
+  min-width:120px;
+  height:95px;
+  background:#0d0e12;
+  border:1px solid #444;
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
+.shelf-item img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.shelf-item .tag{
+  position:absolute;
+  bottom:4px;
+  left:4px;
+  background:rgba(0,0,0,0.7);
+  color:var(--lime);
+  font:600 9px var(--mono);
+  padding:2px 5px;
+  border-radius:3px;
+}
+.shelf-empty{
+  font-size:12px;
+  color:#777;
+  padding:15px 0;
+  text-align:center;
+  width:100%;
+}
+.upload-button,.clear-button{font-size:12px;font-weight:600;border:1.5px solid #555;padding:8px 14px;color:white;background:transparent;cursor:pointer;border-radius:6px;transition:.2s}
+.upload-button:hover,.clear-button:hover{border-color:var(--lime);color:var(--lime)}
+.upload-button.active{background:var(--lime);color:var(--black);border-color:var(--lime)}
+
+/* 快速貼圖選擇抽屜 */
+.sticker-picker{
+  display:none;
+  position:absolute;
+  bottom:58px;
+  left:0;
+  background:#1a1c22;
+  border:1.5px solid var(--lime);
+  border-radius:10px;
+  padding:10px 14px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.6);
+  z-index:10;
+  gap:10px;
+  align-items:center;
+}
+.sticker-picker.show{display:flex}
+.sticker-opt{
+  background:#262a33;
+  border:1px solid #485060;
+  border-radius:8px;
+  padding:6px 10px;
+  cursor:pointer;
+  transition:.2s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  color:white;
+}
+.sticker-opt:hover{border-color:var(--lime);background:#2c3328;transform:translateY(-2px)}
+.sticker-opt svg{width:36px;height:36px}
+.sticker-opt span{font:700 10px var(--mono);color:#bbb}
+
+.proto-note{font:11px var(--mono);color:#888;margin-left:auto}
+.mission-prompt{display:flex;gap:14px;align-items:center;border-top:1px solid #444;padding-top:14px;margin-top:auto}
+.prompt-icon{width:28px;height:28px;border:1.5px solid var(--lime);color:var(--lime);display:grid;place-items:center;font:700 14px var(--mono);border-radius:50%}
+.mission-prompt p{font-size:13px;line-height:1.7;color:#bbb;margin:0}
+.mission-prompt strong{font-size:14.5px;color:white}
+.prototype-footnote{display:flex;justify-content:space-between;gap:20px;padding-top:16px;color:#888;font:11px var(--mono)}
+
+/* 三大解壓關卡與 SVG 骨架動作模擬 */
+.missions{padding-top:90px;padding-bottom:95px}
+.missions-title{display:flex;justify-content:space-between;align-items:flex-end;margin:40px 0 36px}
+.missions-title>p{max-width:340px;font-size:14px;line-height:1.9;color:#555;margin:0}
+.mission-tabs{display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--black);border-bottom:2px solid var(--black);background:#fff;border-radius:8px 8px 0 0}
+.mission-tab{position:relative;text-align:left;background:transparent;border:0;border-right:1px solid var(--rule);padding:18px 22px}
+.mission-tab:last-child{border-right:0}
+.mission-tab span{display:block;font:700 11px var(--mono);color:#777}
+.mission-tab b{display:block;font-size:20px;margin-top:6px;font-weight:800}
+.mission-tab i{position:absolute;right:18px;top:28px;font-style:normal;font-size:22px;color:#aaa}
+.mission-tab.active b,.mission-tab.active i{color:var(--violet)}
+
+.mission-detail{
+  display:grid;
+  grid-template-columns:1fr 1.05fr;
+  min-height:380px;
+  border:2px solid var(--black);
+  border-top:0;
+  border-radius:0 0 10px 10px;
+  background:#fff;
+  overflow:hidden;
+}
+
+/* 關卡左側：動態骨架模擬螢幕 */
+.proj-screen-box{
+  background:#0f1311;
+  border-right:2px solid #2a342c;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.screen-header-bar{
+  height:36px;
+  background:#181f1a;
+  display:flex;
+  align-items:center;
+  padding:0 16px;
+  gap:8px;
+  border-bottom:1px solid #29342b;
+}
+.screen-dot{width:10px;height:10px;border-radius:50%;background:#47574b}
+.screen-dot.active{background:var(--lime);box-shadow:0 0 8px var(--lime)}
+.screen-title-bar{font:700 12px var(--mono);letter-spacing:.1em;color:var(--lime);margin-left:auto}
+.screen-viewport{
+  flex:1;
+  min-height:280px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse at center, rgba(113,59,255,0.2) 0%, transparent 70%), #0e1210;
+}
+.screen-svg{width:100%;height:100%}
+.screen-control-btn{
+  display:block;
+  width:calc(100% - 32px);
+  margin:12px auto;
+  background:#1f2821;
+  border:1.5px solid var(--lime);
+  color:var(--lime);
+  font:700 13px var(--mono);
+  padding:10px 18px;
+  border-radius:24px;
+  cursor:pointer;
+  text-align:center;
+  transition:all .25s ease;
+}
+.screen-control-btn:hover{background:var(--lime);color:var(--black)}
+
+/* 動作模擬動畫 Keyframes */
+@keyframes animSquatMotion {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(24px) scaleY(0.9); }
+  70% { transform: translateY(0) scaleY(1); }
+}
+@keyframes animSquatPulseRing {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  40% { transform: scale(0.7); opacity: 0.3; }
+  75% { transform: scale(1.4); opacity: 0.95; }
+}
+.motion-squat-active #skelGroup1 {
+  animation: animSquatMotion 2.2s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transform-origin: 200px 200px;
+}
+.motion-squat-active #pulseRing1 {
+  animation: animSquatPulseRing 2.2s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transform-origin: 200px 195px;
+}
+
+@keyframes animWingFlap {
+  0%, 100% { transform: scale(1); opacity: 0.35; }
+  50% { transform: scale(1.35) translateY(-8px); opacity: 0.95; }
+}
+@keyframes animArmSwing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-30deg) translateY(-8px); }
+}
+@keyframes animArmSwingR {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(30deg) translateY(-8px); }
+}
+.motion-wings-active #armLeft2 {
+  animation: animArmSwing 2.4s infinite ease-in-out;
+  transform-origin: 200px 75px;
+}
+.motion-wings-active #armRight2 {
+  animation: animArmSwingR 2.4s infinite ease-in-out;
+  transform-origin: 200px 75px;
+}
+.motion-wings-active #wingGlow2 {
+  animation: animWingFlap 2.4s infinite ease-in-out;
+  transform-origin: 200px 105px;
+}
+
+@keyframes animSpineSideBend {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(-14deg); }
+  70% { transform: rotate(14deg); }
+}
+@keyframes animAuroraWave {
+  0%, 100% { transform: translateX(0) scaleY(1); opacity: 0.6; }
+  50% { transform: translateX(18px) scaleY(1.15); opacity: 0.95; }
+}
+.motion-bend-active #skelSpineGroup3 {
+  animation: animSpineSideBend 3s infinite ease-in-out;
+  transform-origin: 195px 210px;
+}
+.motion-bend-active #auroraBeam3 {
+  animation: animAuroraWave 3s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.mission-text{padding:30px 36px;display:flex;flex-direction:column;justify-content:center}
+.mission-text .scenario{font:700 12px var(--mono);color:var(--violet)}
+.mission-text h3{font-size:28px;letter-spacing:-.04em;margin:8px 0 10px;font-weight:900}
+.mission-text>p{font-size:15px;line-height:1.9;color:#333;margin:0 0 16px}
+.mission-text ul{padding-left:18px;margin:0;font-size:14px;line-height:2;color:#444}
+.mission-text li::marker{color:var(--violet)}
+.motion-disclaimer{padding-top:14px;font-size:12px;color:#777}
+
+/* 單向解壓縮旅程 */
+.journey{background:var(--black);color:white;padding-top:80px;padding-bottom:90px}
+.journey-title{display:flex;justify-content:space-between;align-items:flex-end;margin:40px 0 38px}
+.journey-title>p{font-size:14px;line-height:1.8;color:#bbb;max-width:280px;margin:0}
+.journey-line{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #444;gap:18px;margin-top:20px}
+.journey-card{background:#18191d;border:1px solid #333;border-radius:10px;padding:20px;position:relative}
+.journey-code{font:700 24px var(--mono);color:var(--lime);margin:0 0 12px;display:flex;justify-content:space-between}
+.journey-code span{color:#666}
+.journey-art{height:140px;position:relative;display:grid;place-items:center;overflow:hidden;background:#202227;border-radius:6px;border:1px solid #3a3d45}
+.terminal{font:700 14px/1.2 var(--mono);background:var(--lime);color:var(--black);padding:10px 14px;border-radius:4px;transform:rotate(-4deg)}
+.wall-figure{font-size:68px;color:var(--lime);text-shadow:0 0 24px var(--violet)}
+.art-b{background:radial-gradient(circle at 50% 50%,#713bff,#1b1337 70%)}
+.bottle{font:900 48px var(--sans);color:var(--black);background:var(--lime);width:44px;height:74px;border-radius:12px 12px 8px 8px;display:grid;place-items:center;box-shadow:0 0 25px rgba(184,255,44,.4)}
+.ticket{font:700 13px var(--mono);padding:10px 14px;border:1.5px dashed var(--lime);color:var(--lime);transform:rotate(4deg)}
+.journey-card h3{font-size:18px;margin:16px 0 8px;font-weight:800}
+.journey-card p{font-size:13px;line-height:1.8;color:#aaa;min-height:54px;margin:0 0 10px}
+.journey-card small{font:600 11px var(--mono);color:var(--lime)}
+
+/* 光雕釋放滿版 */
+.release{
+  height:440px;
+  background:var(--violet);
+  color:white;
+  position:relative;
+  overflow:hidden;
+  padding:50px 8vw;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+.release h2{font-size:clamp(44px,6.5vw,82px);line-height:.96;letter-spacing:-.07em;margin:20px 0;position:relative;z-index:2;font-weight:900}
+.release h2 span{color:var(--lime)}
+.release-note{position:relative;z-index:3;font-size:14px;color:#e8e2ff;max-width:520px;line-height:1.9}
+.release-burst{position:absolute;right:16%;top:10%;color:var(--lime);font-size:260px;line-height:1;text-shadow:0 0 40px rgba(184,255,44,.6);animation:rotate 24s linear infinite}
+.release-ribbons{position:absolute;left:35%;right:-10%;bottom:-50px;height:200px;display:flex;gap:14px;transform:rotate(-15deg)}
+.release-ribbons i{display:block;width:18%;height:100%;background:linear-gradient(90deg,transparent,var(--lime),#fff,transparent);filter:blur(7px);opacity:.7;border-radius:50%}
+
+/* 效益與合作夥伴 */
+.impact{padding-top:90px;padding-bottom:95px}
+.impact-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;margin-top:45px}
+.brand-partner{border-top:1.5px solid var(--black);padding-top:18px;margin-top:25px}
+.partner-label{color:#666;font:700 11px var(--mono)}
+.weider-mark{font:900 38px var(--sans);letter-spacing:-.06em;margin:10px 0}
+.weider-mark span{color:var(--violet);font-size:20px;vertical-align:top;margin-left:4px}
+.partner-extra{font-size:14px;font-weight:800;color:var(--violet);margin-bottom:8px}
+.brand-partner p{font-size:13.5px;line-height:1.85;color:#444}
+
+.kpi-board{background:var(--black);color:white;padding:28px 32px;border-radius:10px}
+.kpi-head{display:flex;justify-content:space-between;border-bottom:1px solid #444;padding-bottom:14px;font:700 12px var(--mono);color:var(--lime)}
+.kpi-board article{display:flex;align-items:center;gap:24px;border-bottom:1px solid #333;padding:22px 0}
+.kpi-num{min-width:170px;font:700 clamp(44px,5.5vw,64px)/1 var(--mono);color:var(--lime);letter-spacing:-.06em}
+.kpi-num span{font-size:.6em;color:var(--violet)}
+.kpi-label{font-size:14px;line-height:1.7}
+.kpi-label small{font-size:12px;color:#aaa}
+.kpi-note{font:11.5px/1.8 var(--mono);color:#aaa;margin-top:18px}
+
+/* 團隊詳細資訊 */
+.details{background:var(--lime);padding-top:70px;padding-bottom:65px}
+.details .section-head{border-color:rgba(0,0,0,.35)}
+.details-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;padding:35px 0}
+.detail-title h2{font-size:clamp(36px,4.8vw,56px);line-height:1.05;letter-spacing:-.06em;margin:0 0 16px;font-weight:900}
+.details dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
+.details dl>div{border-bottom:1px solid rgba(0,0,0,.25);padding:14px 0}
+.details dt{font:700 11px var(--mono);color:#374913;margin-bottom:6px}
+.details dd{margin:0;font-size:13.5px;line-height:1.8;font-weight:600}
+.open-items{border-top:1.5px solid rgba(0,0,0,.35);padding-top:16px;display:flex;gap:30px;font:700 12px var(--mono)}
+.open-items p{margin:0;font:500 13px/1.8 var(--tc)}
+
+/* 頁尾 */
+.footer{background:var(--black);color:white;padding:40px 5vw 0;padding-bottom:env(safe-area-inset-bottom,0px)}
+.footer-top{min-height:210px;display:flex;align-items:center;gap:30px;position:relative}
+.footer-symbol{font-size:75px;color:var(--lime)}
+.footer-top h2{font-size:clamp(38px,5vw,64px);letter-spacing:-.07em;line-height:1;margin:14px 0;font-weight:900}
+.footer-top h2 em{font-style:normal;color:var(--lime)}
+.back-top{margin-left:auto;align-self:flex-start;margin-top:16px;font:700 11px var(--mono);border-bottom:1.5px solid #777;padding-bottom:6px}
+.footer-bottom{height:54px;border-top:1px solid #333;display:flex;justify-content:space-between;align-items:center;font:11px var(--mono);color:#aaa}
+
+@keyframes pulse{to{transform:scale(1.17);opacity:.7}}
+@keyframes float{50%{transform:translateY(-12px) rotate(14deg)}}
+@keyframes rotate{to{transform:rotate(360deg)}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* 響應式優化 */
+@media(max-width:960px){
+  .hero-main{grid-template-columns:1fr}
+  .hero-visual{height:460px}
+  .origin-box{grid-template-columns:1fr}
+  .idea-layout{grid-template-columns:1fr;gap:24px}
+  .principles{grid-template-columns:1fr}
+  .flow-steps{grid-template-columns:repeat(3,1fr)}
+  .play-board{grid-template-columns:1fr}
+  .body-panel{border-right:0;border-bottom:1px solid #444}
+  .mission-detail{grid-template-columns:1fr}
+  .proj-screen-box{border-right:0;border-bottom:2px solid #2a342c}
+  .journey-line{grid-template-columns:1fr 1fr}
+  .impact-layout{grid-template-columns:1fr}
+  .details-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .nav nav,.nav-button{display:none}
+  .menu-toggle{display:block}
+  .nav.menu-open nav{position:absolute;top:calc(62px + env(safe-area-inset-top,0px));left:0;right:0;background:var(--black);padding:20px 6vw;display:flex;flex-direction:column;gap:18px;border-top:1px solid #444}
+  .hero-visual{height:390px}
+  .flow-steps{grid-template-columns:1fr 1fr}
+  .mission-tabs{grid-template-columns:1fr}
+  .mission-tab{border-right:0;border-bottom:1px solid var(--rule)}
+  .journey-line{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+  <div class="site-warning">
+    <span>企劃官網 · 這組有誠意（第三組）× TNDA 數位互動設計團隊</span>
+    <span>運動部 × 臺中市政府指導 · 2027 綠美圖特展</span>
+  </div>
+  
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-icon">✳</span>解壓大作戰
+      <small>DAILY DE-STRESS OPERATION</small>
+    </a>
+    <nav>
+      <a href="#origin">企劃緣起</a>
+      <a href="#idea">核心概念</a>
+      <a href="#play">互動預演</a>
+      <a href="#missions">三大關卡</a>
+      <a href="#journey">單向旅程</a>
+      <a href="#impact">推廣效益</a>
+    </nav>
+    <a class="nav-button" href="https://mofila.github.io/city-pulse/" target="_blank" rel="noopener noreferrer">開啟模擬網站 <b>↗</b></a>
+    <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+  </header>
+
+  <main id="top">
+    <!-- HERO 視覺 -->
+    <section class="hero">
+      <div class="hero-grid-mark" aria-hidden="true"></div>
+      <div class="hero-info">
+        <span>全民生活微運動 × 沉浸式肌群舒緩光雕展</span>
+        <span>TAICHUNG · 2027</span>
+      </div>
+      <div class="hero-main">
+        <div class="hero-copy">
+          <p class="eyebrow"><i></i> MOVE A LITTLE. FEEL A LOT.</p>
+          <h1>日常解壓<br><span>大作戰<span class="title-star">✳</span></span></h1>
+          <p class="hero-lead">看見體內緊繃，<br>一動，身體就發光。</p>
+          <p class="hero-desc">久坐、低頭、單肩負重——把日常累積的隱形疲勞化成看得見的光，在臺中綠美圖做 30 秒微伸展，讓緊繃在 360° 光雕展場裡融解、釋放、流動。</p>
+          <div class="hero-ctas">
+            <a class="btn btn-lime" href="https://mofila.github.io/city-pulse/" target="_blank" rel="noopener noreferrer">開啟模擬架設 <span>↗</span></a>
+            <a class="btn btn-ghost" href="#origin">認識企劃 <span>↓</span></a>
+          </div>
+        </div>
+
+        <!-- HERO 右側視覺：純粹站姿、痠痛幾何符號組成之黑色人體剪影 -->
+        <div class="hero-visual" aria-label="由密集的痠痛符號幾何陣列構成的站立人體剪影">
+          <div class="visual-caption cap-top">BODY SIGNAL / 01<br>TENSION MATRIX DETECTED</div>
+          
+          <svg class="hero-standing-svg" viewBox="0 0 340 480" fill="none">
+            <defs>
+              <!-- 痠痛符號陣列 Pattern -->
+              <pattern id="painGlyphPattern" width="22" height="22" patternUnits="userSpaceOnUse">
+                <circle cx="11" cy="11" r="5" stroke="#b8ff2c" stroke-width="1.2" fill="none" opacity="0.9"/>
+                <circle cx="11" cy="11" r="2" fill="#b8ff2c" opacity="0.8"/>
+                <path d="M2 2 L6 6 M6 2 L2 6 M16 16 L20 20 M20 16 L16 20" stroke="#ffffff" stroke-width="1" opacity="0.75"/>
+                <rect x="15" y="2" width="5" height="5" stroke="#b8ff2c" stroke-width="1" fill="none" opacity="0.6"/>
+                <path d="M3 18 H7 M5 16 V20" stroke="#ffffff" stroke-width="1" opacity="0.6"/>
+              </pattern>
+
+              <!-- 直立站姿人體遮罩 (清晰人體剪影) -->
+              <mask id="standingManMask">
+                <!-- 頭部 -->
+                <circle cx="170" cy="48" r="26" fill="#fff"/>
+                <!-- 脖子 -->
+                <rect x="162" y="72" width="16" height="14" fill="#fff"/>
+                <!-- 軀幹軀體 (自然立姿) -->
+                <path d="M135 86 C145 84, 195 84, 205 86 L210 190 C195 194, 145 194, 130 190 Z" fill="#fff"/>
+                <!-- 雙手臂下垂微展 -->
+                <path d="M134 88 L114 175 L108 235 L120 238 L128 178 L138 120 Z" fill="#fff"/>
+                <path d="M206 88 L226 175 L232 235 L220 238 L212 178 L202 120 Z" fill="#fff"/>
+                <!-- 雙手掌 -->
+                <circle cx="114" cy="242" r="7" fill="#fff"/>
+                <circle cx="226" cy="242" r="7" fill="#fff"/>
+                <!-- 骨盆與雙腿直立 -->
+                <path d="M130 190 H210 L204 315 L200 420 L178 420 L176 315 L170 230 L164 315 L162 420 L140 420 L136 315 Z" fill="#fff"/>
+                <!-- 雙腳掌 -->
+                <path d="M136 418 H162 L164 434 H128 Z" fill="#fff"/>
+                <path d="M178 418 H204 L212 434 H176 Z" fill="#fff"/>
+              </mask>
+            </defs>
+
+            <!-- 剪影底層：深黑色實體人身 -->
+            <g mask="url(#standingManMask)">
+              <rect x="0" y="0" width="340" height="480" fill="#101010"/>
+              <!-- 內部填滿痠痛符號矩陣 -->
+              <rect x="0" y="0" width="340" height="480" fill="url(#painGlyphPattern)"/>
+              
+              <!-- 肩頸與下背 呼吸暗紅緊繃光斑 (Tension Cores) -->
+              <circle cx="170" cy="110" r="32" fill="#ff315b" opacity="0.85" class="pulse-core"/>
+              <circle cx="170" cy="180" r="24" fill="#ff315b" opacity="0.8" class="pulse-core"/>
+              <circle cx="130" cy="115" r="14" fill="#ff315b" opacity="0.75" class="pulse-core"/>
+              <circle cx="210" cy="115" r="14" fill="#ff315b" opacity="0.75" class="pulse-core"/>
+            </g>
+
+            <!-- 外圍微發光輪廓 -->
+            <circle cx="170" cy="48" r="26" stroke="#b8ff2c" stroke-width="1.5" fill="none" opacity="0.4"/>
+            <!-- 痛點標記線條 -->
+            <line x1="70" y1="110" x2="135" y2="110" stroke="#ff315b" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <text x="65" y="113" fill="#ff315b" font-family="var(--mono)" font-size="9" text-anchor="end" font-weight="700">C7-T1 STRAIN</text>
+            <line x1="270" y1="180" x2="205" y2="180" stroke="#ff315b" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <text x="275" y="183" fill="#ff315b" font-family="var(--mono)" font-size="9" font-weight="700">L4-L5 FATIGUE</text>
+          </svg>
+
+          <div class="visual-caption cap-bottom">1 : 1 STANDING SILHOUETTE<br>RESOLVING TENSION INTO LIGHT</div>
+          <div class="visual-coordinate">24°11' N<br>TAICHUNG GREEN MUSEUM</div>
+          <div class="visual-label">直立檢測中</div>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <span>2027.01.10 — 01.24（為期兩週）</span>
+        <span>臺中綠美圖 B 棟・1F 特展廳</span>
+        <span class="scroll-hint">SCROLL TO RELEASE ↓</span>
+      </div>
+    </section>
+
+    <!-- 跑馬燈 -->
+    <section class="ticker" aria-label="企劃口號">
+      <div>久坐太久？ <b>動一下。</b>　低頭太久？ <b>動一下。</b>　側腰卡住？ <b>動一下。</b>　身體發光！ <em>MOVE · MELT · RELEASE ·</em>　久坐太久？ <b>動一下。</b>　低頭太久？ <b>動一下。</b>　側腰卡住？ <b>動一下。</b>　身體發光！ <em>MOVE · MELT · RELEASE ·</em>　</div>
+    </section>
+
+    <!-- 企劃緣起與核心概念 -->
+    <section class="idea section" id="origin">
+      <div class="section-head">
+        <span class="eyebrow dark"><i></i> BACKGROUND &amp; ORIGIN / 企劃緣起</span>
+        <span class="index">01 — 05</span>
+      </div>
+      <div class="origin-box">
+        <div>
+          <h3>打破「運動必須大汗淋漓」的門檻</h3>
+          <p>上班族、外送員、專櫃人員與學生普遍面臨長時間久坐、久站或低頭 3C 的生活型態，肩頸僵硬與腰椎疲勞已成全民通病。然而傳統體育推廣多著重高強度賽事或健身房鍛鍊，常讓久坐亞健康族群產生「好累、沒時間、怕負擔」的心理抗拒；醫療講座又過於嚴肅無趣。</p>
+        </div>
+        <div>
+          <h3>在綠美圖，啟動全民日常微運動</h3>
+          <p>響應運動部推動「全民日常微運動（Snack Exercises）」政策，本案選址於臺中綠美圖特展廳，以零負擔的沉浸式光雕為橋樑，不強求激烈鍛鍊，而是引導大眾透過 30 秒直覺微伸展釋放慢性疲勞，打造一場讓市民走進美術館就能隨手完成、即刻有感的身心解壓行動。</p>
+        </div>
+      </div>
+
+      <div class="section-head" id="idea">
+        <span class="eyebrow dark"><i></i> THE BIG IDEA / 核心概念與光雕連結</span>
+        <span class="index">02 — 05</span>
+      </div>
+      <div class="idea-layout">
+        <h2>把「看不見的<br>緊繃」<br><em>變成看得見的光。</em></h2>
+        <div class="idea-copy">
+          <p class="idea-quote">「看見體內緊繃，<br>一動，身體就發光。」</p>
+          <p>光雕並非單純的視覺特效或背景裝飾，而是將「體內看不見的緊繃」轉化為「看得見的放鬆反饋」的體感互動媒介。透過 1:1 光之剪影與能量光暈，動作產生物理對抗，動作達標瞬間，暗紅光結瞬間瓦解，化為通透的金色與松綠色流光奔流全場。</p>
+          <div class="idea-tags">
+            <span>日常微運動</span><span>1:1 光之剪影</span><span>能量光暈瓦解</span><span>即時多巴胺回饋</span>
+          </div>
+        </div>
+      </div>
+      <div class="principles">
+        <article>
+          <span>01 / SEE IT</span>
+          <h3>認領疲勞</h3>
+          <p>生活幽默場景引發共鳴，讓體內隱形痠痛在剪影中外顯為暗紅光結。</p>
+        </article>
+        <article>
+          <span>02 / MOVE IT</span>
+          <h3>直覺伸展</h3>
+          <p>跟隨直覺微運動指引，在肢體拉伸中與體內緊繃產生視覺對抗。</p>
+        </article>
+        <article>
+          <span>03 / RELEASE</span>
+          <h3>即刻釋放</h3>
+          <p>暗紅光結瓦解，溫潤金綠流光自剪影噴湧，貫通地面臺中動脈路網。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 互動預演區 -->
+    <section class="interactive section" id="play">
+      <div class="section-head light">
+        <span class="eyebrow"><i></i> INTERACTIVE PREVIEW &amp; FLOW / 互動概念預演</span>
+        <span class="index">TRY IT 01</span>
+      </div>
+      <div class="play-intro">
+        <h2>今天，哪裡<br><em>卡住了？</em></h2>
+        <p>展場操作流程：手機掃碼進入網頁 ➔ 點選疲勞部位 ➔ 牆面投射爆炸／融解效果 ➔ 參展者繪製發散軌跡 ➔ 依提示做動作引發全場光雕互動。以下為網頁互動體驗示意：</p>
+      </div>
+
+      <div class="flow-steps">
+        <div class="flow-step-item"><b>STEP 01</b>手機掃描 QR Code 進入活動互動網頁</div>
+        <div class="flow-step-item"><b>STEP 02</b>點選今日最有感、卡住的痠痛部位</div>
+        <div class="flow-step-item"><b>STEP 03</b>牆面投射 1:1 剪影與局部暗紅爆炸光暈</div>
+        <div class="flow-step-item"><b>STEP 04</b>在螢幕畫面上繪製解壓軌跡與散發特效</div>
+        <div class="flow-step-item"><b>STEP 05</b>根據現場光影提示，做出指定微運動動作</div>
+        <div class="flow-step-item"><b>STEP 06</b>動作達標觸發全場流光釋放，即時互動完成</div>
+      </div>
+
+      <div class="play-board">
+        <div class="body-panel">
+          <div class="panel-top">
+            <span>01 / SELECT A BODY SIGNAL</span>
+            <span class="live"><i></i> READY</span>
+          </div>
+          <div class="body-stage">
+            <div class="body-glow" id="bodyGlow"></div>
+            <svg class="body-map" viewBox="0 0 300 460" role="img" aria-label="可選擇痠痛部位的人體剪影">
+              <path class="body-shape" d="M150 36c-29 0-43 22-43 48 0 24 12 42 34 47v20c-26 9-48 20-59 39l-35 80c-9 20 19 31 28 12l37-61 3 76-42 133c-7 20 22 29 31 9l46-104 46 104c9 20 38 11 31-9l-42-133 3-76 37 61c9 19 37 8 28-12l-35-80c-11-19-33-30-59-39v-20c22-5 34-23 34-47 0-26-14-48-43-48z"/>
+              <path class="body-joints" d="M113 179l-35 83m109-83 35 83M129 298l-10 56m52-56 10 56"/>
+              <g class="zone selected" data-zone="shoulder"><circle cx="112" cy="175" r="21"/><text x="112" y="179">肩</text></g>
+              <g class="zone" data-zone="neck"><circle cx="150" cy="126" r="19"/><text x="150" y="130">頸</text></g>
+              <g class="zone" data-zone="back"><circle cx="150" cy="213" r="20"/><text x="150" y="217">背</text></g>
+              <g class="zone" data-zone="waist"><circle cx="150" cy="265" r="20"/><text x="150" y="269">腰</text></g>
+              <g class="zone" data-zone="hip"><circle cx="150" cy="310" r="20"/><text x="150" y="314">臀</text></g>
+            </svg>
+            <span class="body-hint">點選光點切換疲勞部位</span>
+          </div>
+          <div class="zone-buttons">
+            <button class="zone-button active" data-zone="shoulder">肩頸僵硬 <b>↗</b></button>
+            <button class="zone-button" data-zone="neck">低頭烏龜頸 <b>↗</b></button>
+            <button class="zone-button" data-zone="waist">側腰緊巴巴 <b>↗</b></button>
+            <button class="zone-button" data-zone="hip">久坐屁股麻 <b>↗</b></button>
+          </div>
+        </div>
+        <div class="draw-panel">
+          <div class="panel-top">
+            <span>02 / DRAW &amp; COMPOSE YOUR RELEASE</span>
+            <span id="drawMode" class="draw-mode">LIGHT TRACE</span>
+          </div>
+          <div class="canvas-wrap" id="canvasContainer">
+            <canvas id="lightCanvas" aria-label="在畫面上繪製光流軌跡"></canvas>
+            <div class="canvas-guide" id="canvasGuide">
+              <span class="guide-plus">＋</span>
+              <b>在這裡畫出你的散發光流軌跡</b>
+              <small>按住滑鼠或手指拖曳 · 加入貼圖調整位置與大小</small>
+            </div>
+            <div class="canvas-top-label">LIGHT WALL / 360°</div>
+            <div class="canvas-bottom-label">HOLD &amp; DRAG TO RELEASE</div>
+          </div>
+
+          <!-- 貼圖縮放調整列 -->
+          <div class="sticker-scale-bar" id="stickerScaleBar">
+            <span>貼圖大小調整:</span>
+            <input type="range" id="stickerScaleSlider" min="30" max="180" value="70">
+            <button type="button" id="unselectStickerBtn" style="font-size:11px;color:#999;border:1px solid #555;padding:2px 6px;border-radius:4px">完成調整 ✓</button>
+          </div>
+
+          <div class="draw-actions">
+            <button id="stickerToggleBtn" type="button" class="upload-button">＋ 加入貼圖</button>
+            <button id="clearCanvas" class="clear-button">清除畫布 ↺</button>
+            <button id="confirmUploadBtn" type="button" class="confirm-btn">確認上傳 🚀</button>
+
+            <!-- 點擊展開的預設解壓光雕貼圖抽屜 -->
+            <div class="sticker-picker" id="stickerPicker">
+              <button type="button" class="sticker-opt" data-sticker="burst">
+                <svg viewBox="0 0 40 40">
+                  <path d="M20 2 L23 14 L35 11 L27 20 L36 29 L24 27 L20 38 L16 27 L4 29 L13 20 L5 11 L17 14 Z" fill="#b8ff2c" stroke="#fff" stroke-width="1"/>
+                </svg>
+                <span>解壓光芒</span>
+              </button>
+              <button type="button" class="sticker-opt" data-sticker="bolt">
+                <svg viewBox="0 0 40 40">
+                  <polygon points="22,4 10,22 19,22 17,36 30,18 21,18" fill="#ff315b" stroke="#fff" stroke-width="1"/>
+                </svg>
+                <span>痛點粉碎</span>
+              </button>
+              <button type="button" class="sticker-opt" data-sticker="sparkle">
+                <svg viewBox="0 0 40 40">
+                  <path d="M20 4 Q20 20 4 20 Q20 20 20 36 Q20 20 36 20 Q20 20 20 4 Z" fill="#713bff" stroke="#b8ff2c" stroke-width="1.5"/>
+                </svg>
+                <span>舒緩星芒</span>
+              </button>
+              <button type="button" class="sticker-opt" data-sticker="ripple">
+                <svg viewBox="0 0 40 40">
+                  <circle cx="20" cy="20" r="14" stroke="#b8ff2c" stroke-width="2" fill="none" stroke-dasharray="4 2"/>
+                  <circle cx="20" cy="20" r="8" stroke="#ff315b" stroke-width="2" fill="none"/>
+                  <circle cx="20" cy="20" r="3" fill="#b8ff2c"/>
+                </svg>
+                <span>動脈波紋</span>
+              </button>
+
+              <div class="sticker-divider"></div>
+
+              <!-- 自己畫貼圖選項 -->
+              <button type="button" class="custom-sticker-btn" id="openCustomDrawBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                <span>自己畫貼圖</span>
+              </button>
+
+              <!-- 上傳圖片選項 -->
+              <label class="custom-sticker-btn" style="cursor:pointer">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>上傳圖片</span>
+                <input type="file" id="userStickerFileInput" accept="image/*" hidden>
+              </label>
+            </div>
+          </div>
+
+          <div class="mission-prompt">
+            <div class="prompt-icon">!</div>
+            <p><strong id="zonePromptTitle">肩頸需要鬆一下？</strong><br><span id="zonePrompt">先選擇你最有感的部位，再畫一道光並貼上符號，點擊「確認上傳」儲存為專屬光雕特效素材！</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 剛創作上傳的光雕特效素材展示庫 -->
+      <div class="effects-library-shelf">
+        <div class="shelf-header">
+          <span>PROJECTION ASSET LIBRARY / 現場光雕特效素材庫（已確認上傳）</span>
+          <span id="assetCountTag">0 個素材已同步</span>
+        </div>
+        <div class="shelf-list" id="effectsShelfList">
+          <div class="shelf-empty" id="shelfEmptyText">尚未上傳素材。在上方畫布完成創作並點擊「確認上傳 🚀」後，將即時收錄至此處作為光雕投影互動素材！</div>
+        </div>
+      </div>
+
+      <!-- 自己畫貼圖彈窗小畫板 -->
+      <div class="modal-overlay" id="paintModalOverlay">
+        <div class="modal-card">
+          <div class="modal-header">
+            <h4>✏️ 自己畫解壓貼圖</h4>
+            <button type="button" class="modal-close" id="closePaintModalBtn">✕</button>
+          </div>
+          <canvas class="custom-paint-box" id="miniPaintCanvas" width="310" height="240"></canvas>
+          <div class="modal-actions">
+            <button type="button" id="clearMiniPaintBtn" class="clear-button" style="font-size:11px">清除 ↺</button>
+            <button type="button" id="saveMiniPaintBtn" class="confirm-btn" style="font-size:11px;margin:0">完成並加入 ＋</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prototype-footnote">
+        <span>※ 網頁互動為原型預演，不會蒐集個人身體資料。</span>
+        <span>正式展演採用天花板 3D 深度相機搭配 MediaPipe 姿態估計演算法進行無感辨識。</span>
+      </div>
+    </section>
+
+    <!-- 三大解壓關卡 (嵌入動作模擬動畫) -->
+    <section class="missions section" id="missions">
+      <div class="section-head">
+        <span class="eyebrow dark"><i></i> THREE EVERYDAY MISSIONS / 三大解壓關卡</span>
+        <span class="index">03 — 05</span>
+      </div>
+      <div class="missions-title">
+        <h2>把日常卡點，<br><em>變成一個動作。</em></h2>
+        <p>不用專業器材、不用換運動服。點擊模擬按鈕即可預演骨架運算與展場空間光雕反饋：</p>
+      </div>
+      <div class="mission-tabs" role="tablist">
+        <button class="mission-tab active" data-mission="0" role="tab" aria-selected="true"><span>MISSION 01</span><b>久坐屁股麻</b><i>↗</i></button>
+        <button class="mission-tab" data-mission="1" role="tab" aria-selected="false"><span>MISSION 02</span><b>低頭烏龜頸</b><i>↗</i></button>
+        <button class="mission-tab" data-mission="2" role="tab" aria-selected="false"><span>MISSION 03</span><b>側腰緊巴巴</b><i>↗</i></button>
+      </div>
+      
+      <!-- 關卡詳細與 SVG 動態模擬器容器 -->
+      <article class="mission-detail" id="missionDetail"></article>
+      <div class="motion-disclaimer">※ 動作設計專注於日常隨手可做的直覺微伸展，去除生硬說教，兼顧安全與即刻舒緩回饋。</div>
+    </section>
+
+    <!-- 單向解壓縮旅程 -->
+    <section class="journey section" id="journey">
+      <div class="section-head light">
+        <span class="eyebrow"><i></i> ONE-WAY DE-STRESS JOURNEY / 展覽旅程</span>
+        <span class="index">VISITOR FLOW / A → B → C → D</span>
+      </div>
+      <div class="journey-title">
+        <h2>一路走進去，<br><em>把放鬆帶出來。</em></h2>
+        <p>採不可逆的單向流暢動線（A ➔ D），確保光雕深度感應不受逆向人流干擾，讓身心舒緩與補給自然接軌。</p>
+      </div>
+      <div class="journey-line">
+        <article class="journey-card">
+          <div class="journey-code">A<span>→</span></div>
+          <div class="journey-art art-a"><span class="terminal">QR<br>SCAN</span><i>01</i></div>
+          <h3>受災報到處</h3>
+          <p>選取今日的疲勞情境，登錄機與出票機印出專屬 QR Code 熱感應透光手環。</p>
+          <small>3 台登錄機 / 2 台手環機</small>
+        </article>
+        <article class="journey-card">
+          <div class="journey-code">B<span>→</span></div>
+          <div class="journey-art art-b"><span class="wall-figure">✳</span><i>360°</i></div>
+          <h3>360° 光雕體驗</h3>
+          <p>1:1 光之剪影投射在白牆上，依序完成 3 大微運動任務，觸發全場震撼光雕釋放。</p>
+          <small>12 台雷射投影 / 4 台深度相機</small>
+        </article>
+        <article class="journey-card">
+          <div class="journey-code">C<span>→</span></div>
+          <div class="journey-art art-c"><span class="bottle">W</span><i>in 果凍</i></div>
+          <h3>日常能量補給站</h3>
+          <p>憑活動手環/回饋表單免費領取威德 in 果凍飲，傳達「伸展動一動＋補水補能量」觀念。</p>
+          <small>威德（Weider）能量補給吧台</small>
+        </article>
+        <article class="journey-card">
+          <div class="journey-code">D</div>
+          <div class="journey-art art-d"><span class="ticket">RELAX<br>CARD</span><i>08 SEC</i></div>
+          <h3>處方小卡列印區</h3>
+          <p>掃描手環，8 秒列印光影剪影美照、三招日常動作圖解與 7 天線上打卡 QR Code。</p>
+          <small>2 台列印機 / 高磅數美術紙</small>
+        </article>
+      </div>
+    </section>
+
+    <!-- 光雕釋放全景 -->
+    <section class="release" aria-label="光雕釋放效果">
+      <div class="release-grid"></div>
+      <p class="eyebrow"><i></i> WHEN THE BODY MOVES, THE ROOM RESPONDS</p>
+      <h2>紅色緊繃，<br>碎成一場<span>金綠色的流光暴雨。</span></h2>
+      <div class="release-burst">✳</div>
+      <div class="release-ribbons"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="release-note">動作達標瞬間 → 剪影內部暗紅光斑瓦解 → 溫潤金色與松綠流體光波噴湧而出，順著展牆與天花板，貫通地面臺中動脈路網。</p>
+    </section>
+
+    <!-- 效益評估與品牌合作 -->
+    <section class="impact section" id="impact">
+      <div class="section-head">
+        <span class="eyebrow dark"><i></i> IMPACT &amp; PARTNERSHIP / 推廣效益與品牌合作</span>
+        <span class="index">04 — 05</span>
+      </div>
+      <div class="impact-layout">
+        <div>
+          <h2>好習慣，<br><em>從展場延續至日常。</em></h2>
+          <p class="impact-lead">以零負擔的趣味體驗，精準觸及久坐族群，將展場內的 30 秒微伸展轉化為可量化的政策成果與健康習慣。</p>
+          <div class="brand-partner">
+            <span class="partner-label">BRAND PARTNER / 品牌補給合作</span>
+            <div class="weider-mark">Weider<span>in 果凍飲</span></div>
+            <div class="partner-extra">＋ 舒緩夥伴：肌樂噴劑、普拿疼肌立</div>
+            <p>呼應威德理念：在運動休閒、忙碌時迅速補充一餐所需，快速充電，活力 in！現場設有能量吧台提供清爽果凍飲試飲，小卡附全通路專屬折價條碼，並聯名舉辦「7 天生活微運動打卡挑戰」，抽年度補給箱。</p>
+          </div>
+        </div>
+        <div class="kpi-board">
+          <div class="kpi-head">
+            <span>MEASURABLE KPI / 運動部政策指標</span>
+            <span>TARGETS</span>
+          </div>
+          <article>
+            <span class="kpi-num">35,000<span>+</span></span>
+            <div class="kpi-label"><b>預計進場體驗人次</b><br><small>4 週展期／日均約 1,250 人次，闖關完成率 85%+</small></div>
+          </article>
+          <article>
+            <span class="kpi-num">105,000</span>
+            <div class="kpi-label"><b>累計微運動次數</b><br><small>系統無感統計，以 35,000 人 × 3 個動作交付政策成果</small></div>
+          </article>
+          <article>
+            <span class="kpi-num">25<span>%</span></span>
+            <div class="kpi-label"><b>日常習慣線上轉化率</b><br><small>目標約 8,750 人掃碼加入 7 天微運動線上打卡</small></div>
+          </article>
+          <div class="kpi-note">※ 政策數據：打破傳統體育推廣障礙，以數據化指標交付運動部與臺中市政府，具體實踐全民健康推動。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 專案詳細資訊與團隊名單 -->
+    <section class="details section">
+      <div class="section-head">
+        <span class="eyebrow dark"><i></i> PROJECT INFORMATION / 團隊與執行規格</span>
+        <span class="index">05 — 05</span>
+      </div>
+      <div class="details-grid">
+        <div class="detail-title">
+          <h2>一場從日常<br>開始的解壓行動。</h2>
+          <p>《日常解壓大作戰》全民生活微運動暨沉浸式肌群舒緩光雕展</p>
+        </div>
+        <dl>
+          <div><dt>展演期間</dt><dd>2027年1月10日 — 1月24日（為期兩週）</dd></div>
+          <div><dt>展演地點</dt><dd>臺中綠美圖 B 棟 1 樓・特展廳</dd></div>
+          <div><dt>指導／主辦單位</dt><dd>運動部、臺中市政府</dd></div>
+          <div><dt>承辦單位</dt><dd>第三組（這組有誠意）</dd></div>
+          <div><dt>技術／執行單位</dt><dd>TNDA 數位互動設計團隊</dd></div>
+          <div><dt>品牌補給合作</dt><dd>威德（Weider）in 果凍飲、肌樂噴劑、普拿疼肌立</dd></div>
+          <div><dt>核心分工名單</dt><dd>PM｜徐妤珊、謝宥綾<br>程式｜袁宸翊、陳翰博<br>美術｜吳兆敏、陳翰博、謝宥綾<br>企劃｜吳兆敏、徐妤珊</dd></div>
+          <div><dt>主要視覺風格</dt><dd>電光紫 / 霓虹綠 / 極致黑 / 灰白<br>未來科技、數據神經、前衛酷炫</dd></div>
+        </dl>
+      </div>
+      <div class="open-items">
+        <span>技術與策展落實</span>
+        <p>12 台高階雷射投影機無縫拼接 · 4 台 3D 深度相機姿態追蹤 · 臺中市 3D 動脈街道地圖地面光雕 · 單向解壓縮動線人流控管 · 威德機能果凍即時補給</p>
+      </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="footer">
+      <div class="footer-top">
+        <span class="footer-symbol">✳</span>
+        <div>
+          <p class="eyebrow">DAILY DE-STRESS OPERATION</p>
+          <h2>動一下，<em>身體就發光。</em></h2>
+        </div>
+        <a href="#top" class="back-top">BACK TO TOP ↑</a>
+      </div>
+      <div class="footer-bottom">
+        <span>《日常解壓大作戰》這組有誠意（第三組）× TNDA 團隊 企劃</span>
+        <span>臺中綠美圖特展 · 運動部指導</span>
+        <span>TAICHUNG / 2027</span>
+      </div>
+    </footer>
+  </main>
+
+<script>
+/* 關卡資料與動態 SVG 骨架結構 */
+const missionData = [
+  {
+    name: '椅子無痕起立',
+    en: 'CHAIR STAND',
+    scene: '久坐屁股麻',
+    prompt: '今天屁股也和椅子融為一體了嗎？',
+    action: '在方塊椅前連續起立、微蹲、站直夾臀 3 次；站直鎖定維持 2 秒。',
+    benefit: '活化休眠臀大肌與大腿前側，擠壓下肢血管促進血液回流。',
+    tech: '天花板 3D 深度相機追蹤髖、膝、踝位移，判定膝關節自 90 度延展至 180 度。',
+    release: '站直瞬間，暗紅雜訊炸裂為金色動脈流光，沿著地面 3D 臺中地圖向外奔騰。',
+    stageId: 1,
+    svgHTML: `
+      <svg class="screen-svg" viewBox="0 0 400 240" fill="none">
+        <path d="M0 200 C100 180, 300 180, 400 200" stroke="#253528" stroke-width="2"/>
+        <path d="M0 220 C100 195, 300 195, 400 220" stroke="#1d2920" stroke-width="2"/>
+        <g id="skelGroup1" stroke="#b8ff2c" stroke-width="3.5" stroke-linecap="round">
+          <circle cx="200" cy="55" r="9" fill="#b8ff2c"/>
+          <line x1="200" y1="64" x2="200" y2="120"/>
+          <line x1="200" y1="120" x2="175" y2="155"/>
+          <line x1="175" y1="155" x2="185" y2="195"/>
+          <line x1="200" y1="120" x2="225" y2="155"/>
+          <line x1="225" y1="155" x2="215" y2="195"/>
+          <line x1="200" y1="80" x2="160" y2="95"/>
+          <line x1="200" y1="80" x2="240" y2="95"/>
+        </g>
+        <g id="pulseRing1">
+          <ellipse cx="200" cy="195" rx="70" ry="16" stroke="#b8ff2c" stroke-width="3" opacity="0.85"/>
+          <ellipse cx="200" cy="195" rx="120" ry="24" stroke="#713bff" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.7"/>
+          <ellipse cx="200" cy="195" rx="170" ry="32" stroke="#4ec9b0" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
+        </g>
+      </svg>
+    `,
+    btnText: '啟動深蹲起立動作模擬 ⟳',
+    activeText: 'STAGE 01 · 正在深蹲起立 & 動脈爆發',
+    idleText: 'STAGE 01 · 骨架判定中'
+  },
+  {
+    name: 'Y-W 展翅夾背',
+    en: 'YW STRETCH',
+    scene: '低頭烏龜頸',
+    prompt: '低頭看螢幕，脖子快折斷？手臂緊到打不開？',
+    action: '雙手在空中由 W 字後夾向斜上方推展成 Y 字高舉，重複 3 次；Y 字頂點停頓吸氣 3 秒。',
+    benefit: '牽伸緊繃胸小肌與胸大肌，活化後背菱形肌與斜方肌，釋放頸椎壓力。',
+    tech: '深度相機捕捉雙腕、雙肘、雙肩與頸椎，計算雙肩胛骨向中線收縮，Y字夾角 > 120 度。',
+    release: '剪影背後如拍翅般綻放出半透明金色光羽光翼，光流攀上天花板，伴隨綠美圖植被線條舒展。',
+    stageId: 2,
+    svgHTML: `
+      <svg class="screen-svg" viewBox="0 0 400 240" fill="none">
+        <g id="wingGlow2">
+          <path d="M200 100 Q120 20 60 80 Q130 110 200 105" fill="rgba(113, 59, 255, 0.35)" stroke="#713bff" stroke-width="2.5"/>
+          <path d="M200 100 Q280 20 340 80 Q270 110 200 105" fill="rgba(113, 59, 255, 0.35)" stroke="#713bff" stroke-width="2.5"/>
+          <path d="M200 110 Q100 60 40 140 Q130 140 200 115" fill="rgba(184, 255, 44, 0.25)" stroke="#b8ff2c" stroke-width="2"/>
+          <path d="M200 110 Q300 60 360 140 Q270 140 200 115" fill="rgba(184, 255, 44, 0.25)" stroke="#b8ff2c" stroke-width="2"/>
+        </g>
+        <g stroke="#ffffff" stroke-width="3.5" stroke-linecap="round">
+          <circle cx="200" cy="50" r="9" fill="#ffffff"/>
+          <line x1="200" y1="59" x2="200" y2="130"/>
+          <line x1="200" y1="130" x2="190" y2="205"/>
+          <line x1="200" y1="130" x2="210" y2="205"/>
+          <g id="armLeft2">
+            <line x1="200" y1="75" x2="160" y2="85"/>
+            <line x1="160" y1="85" x2="140" y2="50"/>
+          </g>
+          <g id="armRight2">
+            <line x1="200" y1="75" x2="240" y2="85"/>
+            <line x1="240" y1="85" x2="260" y2="50"/>
+          </g>
+        </g>
+      </svg>
+    `,
+    btnText: '啟動 W-Y 展翅手臂模擬 ⟳',
+    activeText: 'STAGE 02 · 正在 W-Y 展翅夾背 & 光羽綻放',
+    idleText: 'STAGE 02 · 展翅夾背中'
+  },
+  {
+    name: '弦月側彎伸展',
+    en: 'SIDE BEND',
+    scene: '側腰緊巴巴',
+    prompt: '單側背包包、右手催油門... 腰已經硬成石頭了？',
+    action: '單手叉腰，另一手高舉過頭向側邊輕柔延伸；左右各維持 3 秒。',
+    benefit: '牽伸腰方肌、腹外斜肌與側軀筋膜，平衡因單側受力造成的身體歪斜。',
+    tech: '追蹤脊椎中軸與手臂幾何曲線，判定中軸側傾角 > 15 度且雙腳未位移，雙側各維持 3 秒。',
+    release: '極光般的流動水瀑順著身體傾斜弧度自天花板傾瀉而下，接通展廳地面的光帶。',
+    stageId: 3,
+    svgHTML: `
+      <svg class="screen-svg" viewBox="0 0 400 240" fill="none">
+        <line x1="200" y1="0" x2="200" y2="240" stroke="#713bff" stroke-width="4" stroke-dasharray="10 5" opacity="0.35"/>
+        <g id="auroraBeam3">
+          <path d="M120 220 C 130 140, 220 70, 310 20" stroke="#b8ff2c" stroke-width="5" stroke-linecap="round"/>
+          <path d="M110 220 C 120 145, 210 75, 300 25" stroke="#75f2a1" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+        <g id="skelSpineGroup3" stroke="#b8ff2c" stroke-width="3.5" stroke-linecap="round">
+          <circle cx="215" cy="55" r="9" fill="#b8ff2c"/>
+          <path d="M215 64 Q210 100 195 130"/>
+          <line x1="195" y1="130" x2="185" y2="210"/>
+          <line x1="195" y1="130" x2="210" y2="210"/>
+          <line x1="210" y1="80" x2="230" y2="105"/>
+          <path d="M208 80 Q215 50 250 40" stroke="#ff315b" stroke-width="3.5"/>
+        </g>
+      </svg>
+    `,
+    btnText: '啟動側腰擺盪模擬 ⟳',
+    activeText: 'STAGE 03 · 正在側身拉伸 & 極光貫通',
+    idleText: 'STAGE 03 · 側身延展中'
+  }
+];
+
+const missionDetailContainer = document.querySelector('#missionDetail');
+const missionSimStates = { 1: false, 2: false, 3: false };
+let currentMissionIndex = 0;
+
+function renderMission(index) {
+  currentMissionIndex = index;
+  const m = missionData[index];
+  document.querySelectorAll('.mission-tab').forEach((tab, i) => {
+    tab.classList.toggle('active', i === index);
+    tab.setAttribute('aria-selected', String(i === index));
+  });
+
+  const isSimActive = missionSimStates[m.stageId];
+  let animClass = '';
+  if (m.stageId === 1 && isSimActive) animClass = 'motion-squat-active';
+  if (m.stageId === 2 && isSimActive) animClass = 'motion-wings-active';
+  if (m.stageId === 3 && isSimActive) animClass = 'motion-bend-active';
+
+  missionDetailContainer.innerHTML = `
+    <div class="proj-screen-box ${animClass}" id="missionScreenBox">
+      <div class="screen-header-bar">
+        <span class="screen-dot ${isSimActive ? 'active' : ''}"></span>
+        <span class="screen-dot"></span>
+        <span class="screen-dot"></span>
+        <span class="screen-title-bar" id="missionStatusText">${isSimActive ? m.activeText : m.idleText}</span>
+      </div>
+      <div class="screen-viewport">
+        ${m.svgHTML}
+      </div>
+      <button type="button" class="screen-control-btn" id="missionSimBtn">
+        ${isSimActive ? '停止動作模擬 ■' : m.btnText}
+      </button>
+    </div>
+    <div class="mission-text">
+      <span class="scenario">${m.scene} / DAILY GLITCH</span>
+      <h3>${m.name}</h3>
+      <p>「${m.prompt}」</p>
+      <ul>
+        <li><b>動作引導</b>｜${m.action}</li>
+        <li><b>舒緩效益</b>｜${m.benefit}</li>
+        <li><b>互動偵測</b>｜${m.tech}</li>
+        <li><b>光雕釋放</b>｜${m.release}</li>
+      </ul>
+    </div>
+  `;
+
+  document.querySelector('#missionSimBtn').addEventListener('click', () => {
+    toggleMissionSimulation(m.stageId);
+  });
+}
+
+function toggleMissionSimulation(stageId) {
+  missionSimStates[stageId] = !missionSimStates[stageId];
+  renderMission(currentMissionIndex);
+}
+
+document.querySelectorAll('.mission-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    renderMission(Number(tab.dataset.mission));
+  });
+});
+renderMission(0);
+
+/* 貼圖系統升級：支援拖曳、調整大小、自己畫、上傳圖片與確認上傳 */
+const canvasContainer = document.querySelector('#canvasContainer');
+const stickerScaleBar = document.querySelector('#stickerScaleBar');
+const stickerScaleSlider = document.querySelector('#stickerScaleSlider');
+const unselectStickerBtn = document.querySelector('#unselectStickerBtn');
+let activeStickerEl = null;
+
+const stickerSVGs = {
+  burst: `<svg viewBox="0 0 40 40"><path d="M20 2 L23 14 L35 11 L27 20 L36 29 L24 27 L20 38 L16 27 L4 29 L13 20 L5 11 L17 14 Z" fill="#b8ff2c" stroke="#fff" stroke-width="1.2" filter="drop-shadow(0 0 8px #b8ff2c)"/></svg>`,
+  bolt: `<svg viewBox="0 0 40 40"><polygon points="22,4 10,22 19,22 17,36 30,18 21,18" fill="#ff315b" stroke="#fff" stroke-width="1.2" filter="drop-shadow(0 0 8px #ff315b)"/></svg>`,
+  sparkle: `<svg viewBox="0 0 40 40"><path d="M20 4 Q20 20 4 20 Q20 20 20 36 Q20 20 36 20 Q20 20 20 4 Z" fill="#713bff" stroke="#b8ff2c" stroke-width="1.5" filter="drop-shadow(0 0 10px #713bff)"/></svg>`,
+  ripple: `<svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" stroke="#b8ff2c" stroke-width="2.5" fill="none" stroke-dasharray="4 2" filter="drop-shadow(0 0 6px #b8ff2c)"/><circle cx="20" cy="20" r="8" stroke="#ff315b" stroke-width="2" fill="none"/><circle cx="20" cy="20" r="3" fill="#fff"/></svg>`
+};
+
+function selectSticker(stickerEl) {
+  if (activeStickerEl) activeStickerEl.classList.remove('selected');
+  activeStickerEl = stickerEl;
+  if (stickerEl) {
+    stickerEl.classList.add('selected');
+    stickerScaleBar.classList.add('show');
+    stickerScaleSlider.value = parseInt(stickerEl.style.width) || 70;
+  } else {
+    stickerScaleBar.classList.remove('show');
+  }
+}
+
+function createStickerElement(contentHTML, width = 70) {
+  const el = document.createElement('div');
+  el.className = 'sticker-layer';
+  el.style.width = width + 'px';
+  el.style.height = width + 'px';
+  
+  // 隨機在畫布中間附近生成
+  const rect = canvasContainer.getBoundingClientRect();
+  const initX = rect.width * 0.5 + (Math.random() * 60 - 30);
+  const initY = rect.height * 0.45 + (Math.random() * 40 - 20);
+  el.style.left = initX + 'px';
+  el.style.top = initY + 'px';
+
+  el.innerHTML = contentHTML + `<span class="sticker-del-btn" title="刪除貼圖">✕</span>`;
+
+  // 刪除按鈕
+  el.querySelector('.sticker-del-btn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (activeStickerEl === el) selectSticker(null);
+    el.remove();
+  });
+
+  // 拖曳邏輯
+  let isDragging = false;
+  let startX = 0, startY = 0;
+  let elemStartX = 0, elemStartY = 0;
+
+  function onPointerDown(e) {
+    if (e.target.classList.contains('sticker-del-btn')) return;
+    e.stopPropagation();
+    isDragging = true;
+    selectSticker(el);
+    el.setPointerCapture(e.pointerId);
+    startX = e.clientX;
+    startY = e.clientY;
+    elemStartX = parseFloat(el.style.left);
+    elemStartY = parseFloat(el.style.top);
+  }
+
+  function onPointerMove(e) {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    const parentRect = canvasContainer.getBoundingClientRect();
+    const newX = Math.max(20, Math.min(parentRect.width - 20, elemStartX + dx));
+    const newY = Math.max(20, Math.min(parentRect.height - 20, elemStartY + dy));
+    el.style.left = newX + 'px';
+    el.style.top = newY + 'px';
+  }
+
+  function onPointerUp(e) {
+    isDragging = false;
+  }
+
+  el.addEventListener('pointerdown', onPointerDown);
+  el.addEventListener('pointermove', onPointerMove);
+  el.addEventListener('pointerup', onPointerUp);
+  el.addEventListener('pointercancel', onPointerUp);
+
+  canvasContainer.appendChild(el);
+  selectSticker(el);
+  hasMarks = true;
+  document.querySelector('#canvasGuide').classList.add('hidden');
+}
+
+// 點擊空白處取消選中貼圖
+canvasContainer.addEventListener('pointerdown', (e) => {
+  if (e.target === canvasContainer || e.target === canvas) {
+    selectSticker(null);
+  }
+});
+unselectStickerBtn.addEventListener('click', () => selectSticker(null));
+
+// 滑桿調整選中貼圖大小
+stickerScaleSlider.addEventListener('input', (e) => {
+  if (activeStickerEl) {
+    const val = e.target.value;
+    activeStickerEl.style.width = val + 'px';
+    activeStickerEl.style.height = val + 'px';
+  }
+});
+
+// 貼圖選擇抽屜切換
+const stickerToggleBtn = document.querySelector('#stickerToggleBtn');
+const stickerPicker = document.querySelector('#stickerPicker');
+
+stickerToggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = stickerPicker.classList.toggle('show');
+  stickerToggleBtn.classList.toggle('active', isOpen);
+});
+
+// 點擊預設貼圖直接生成可調整圖層
+document.querySelectorAll('.sticker-opt').forEach(opt => {
+  opt.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const stickerType = opt.dataset.sticker;
+    if (stickerSVGs[stickerType]) {
+      createStickerElement(stickerSVGs[stickerType], 75);
+    }
+    stickerPicker.classList.remove('show');
+    stickerToggleBtn.classList.remove('active');
+  });
+});
+
+// 上傳圖片作為貼圖
+const userStickerFileInput = document.querySelector('#userStickerFileInput');
+userStickerFileInput.addEventListener('change', (e) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const imgHTML = `<img src="${reader.result}" alt="自訂貼圖">`;
+    createStickerElement(imgHTML, 85);
+    stickerPicker.classList.remove('show');
+    stickerToggleBtn.classList.remove('active');
+  };
+  reader.readAsDataURL(file);
+  e.target.value = '';
+});
+
+// 自己畫貼圖小畫板 Modal
+const openCustomDrawBtn = document.querySelector('#openCustomDrawBtn');
+const paintModalOverlay = document.querySelector('#paintModalOverlay');
+const closePaintModalBtn = document.querySelector('#closePaintModalBtn');
+const miniPaintCanvas = document.querySelector('#miniPaintCanvas');
+const miniCtx = miniPaintCanvas.getContext('2d');
+const clearMiniPaintBtn = document.querySelector('#clearMiniPaintBtn');
+const saveMiniPaintBtn = document.querySelector('#saveMiniPaintBtn');
+let miniDrawing = false, miniLastPoint = null;
+
+openCustomDrawBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  stickerPicker.classList.remove('show');
+  stickerToggleBtn.classList.remove('active');
+  paintModalOverlay.classList.add('open');
+  miniCtx.clearRect(0, 0, miniPaintCanvas.width, miniPaintCanvas.height);
+});
+
+closePaintModalBtn.addEventListener('click', () => paintModalOverlay.classList.remove('open'));
+clearMiniPaintBtn.addEventListener('click', () => miniCtx.clearRect(0, 0, miniPaintCanvas.width, miniPaintCanvas.height));
+
+function miniPointFrom(e) {
+  const rect = miniPaintCanvas.getBoundingClientRect();
+  return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+}
+
+miniPaintCanvas.addEventListener('pointerdown', (e) => {
+  miniDrawing = true;
+  miniLastPoint = null;
+  miniPaintCanvas.setPointerCapture(e.pointerId);
+  const p = miniPointFrom(e);
+  miniCtx.save();
+  miniCtx.strokeStyle = '#b8ff2c';
+  miniCtx.shadowColor = '#b8ff2c';
+  miniCtx.shadowBlur = 12;
+  miniCtx.lineWidth = 4;
+  miniCtx.lineCap = 'round';
+  miniCtx.beginPath();
+  miniCtx.moveTo(p.x, p.y);
+  miniCtx.lineTo(p.x + 0.1, p.y + 0.1);
+  miniCtx.stroke();
+  miniCtx.restore();
+  miniLastPoint = p;
+});
+
+miniPaintCanvas.addEventListener('pointermove', (e) => {
+  if (!miniDrawing || !miniLastPoint) return;
+  const p = miniPointFrom(e);
+  miniCtx.save();
+  miniCtx.strokeStyle = '#b8ff2c';
+  miniCtx.shadowColor = '#b8ff2c';
+  miniCtx.shadowBlur = 12;
+  miniCtx.lineWidth = 4;
+  miniCtx.lineCap = 'round';
+  miniCtx.beginPath();
+  miniCtx.moveTo(miniLastPoint.x, miniLastPoint.y);
+  miniCtx.lineTo(p.x, p.y);
+  miniCtx.stroke();
+  miniCtx.restore();
+  miniLastPoint = p;
+});
+
+function stopMiniDrawing() { miniDrawing = false; miniLastPoint = null; }
+miniPaintCanvas.addEventListener('pointerup', stopMiniDrawing);
+miniPaintCanvas.addEventListener('pointercancel', stopMiniDrawing);
+
+saveMiniPaintBtn.addEventListener('click', () => {
+  const dataURL = miniPaintCanvas.toDataURL();
+  const imgHTML = `<img src="${dataURL}" alt="手繪貼圖">`;
+  createStickerElement(imgHTML, 80);
+  paintModalOverlay.classList.remove('open');
+});
+
+// 身體部位切換互動
+const zoneCopy = {
+  shoulder: {title:'肩頸僵硬，需要鬆一下？', text:'選擇肩頸部位，畫一道光，預演上斜方肌緊繃如何在光雕中被拉開。', color:'#ff315b', y:'27%'},
+  neck: {title:'低頭烏龜頸，暫停一下。', text:'長時間低頭讓頸椎受壓，抬頭挺胸，讓暗紅光核隨 W-Y 展翅慢慢散開。', color:'#ff315b', y:'20%'},
+  back: {title:'上背部像打了死結？', text:'把肩胛往中線收，手臂向上推展，用肢體力量將紅色雜訊擠壓出去。', color:'#ff315b', y:'42%'},
+  waist: {title:'外送、單側負重，側腰緊巴巴？', text:'單手高舉側彎，畫一道弧線，感受極光般的流動水瀑順著體側流瀉。', color:'#ff315b', y:'52%'},
+  hip: {title:'屁股和椅子黏在一起太久？', text:'起立、微蹲、站直夾臀，喚醒沉睡的臀大肌，讓金色動脈流光奔流全場。', color:'#ff315b', y:'64%'}
+};
+
+function selectZone(zone) {
+  document.querySelectorAll('.zone').forEach(el => el.classList.toggle('selected', el.dataset.zone === zone));
+  document.querySelectorAll('.zone-button').forEach(el => el.classList.toggle('active', el.dataset.zone === zone));
+  const copy = zoneCopy[zone];
+  document.querySelector('#zonePromptTitle').textContent = copy.title;
+  document.querySelector('#zonePrompt').textContent = copy.text;
+  const glow = document.querySelector('#bodyGlow');
+  glow.style.top = copy.y;
+  glow.style.background = `radial-gradient(circle, ${copy.color}bb, transparent 70%)`;
+  document.querySelector('#drawMode').textContent = `${zone.toUpperCase()} / LIGHT TRACE`;
+}
+document.querySelectorAll('.zone, .zone-button').forEach(el => {
+  el.addEventListener('click', () => selectZone(el.dataset.zone));
+});
+
+// Canvas 散發光流繪製
+const canvas = document.querySelector('#lightCanvas'), ctx = canvas.getContext('2d'), wrap = document.querySelector('.canvas-wrap');
+let drawing = false, hasMarks = false, lastPoint = null;
+
+function resizeCanvas() {
+  const rect = wrap.getBoundingClientRect(), ratio = window.devicePixelRatio || 1;
+  const old = document.createElement('canvas');
+  old.width = canvas.width; old.height = canvas.height;
+  if(canvas.width && canvas.height) old.getContext('2d').drawImage(canvas, 0, 0);
+  canvas.width = Math.max(1, Math.round(rect.width * ratio));
+  canvas.height = Math.max(1, Math.round(rect.height * ratio));
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  if(old.width && old.height) ctx.drawImage(old, 0, 0, old.width, old.height, 0, 0, rect.width, rect.height);
+}
+
+function pointFrom(event) {
+  const rect = canvas.getBoundingClientRect();
+  return {x: event.clientX - rect.left, y: event.clientY - rect.top};
+}
+
+function drawGlow(x, y) {
+  ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
+  ctx.strokeStyle = '#b8ff2c';
+  ctx.lineWidth = 3.3;
+  ctx.lineCap = 'round';
+  ctx.shadowColor = '#b8ff2c';
+  ctx.shadowBlur = 18;
+  ctx.beginPath();
+  if(lastPoint) {
+    ctx.moveTo(lastPoint.x, lastPoint.y);
+    ctx.lineTo(x, y);
+  } else {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + .3, y + .3);
+  }
+  ctx.stroke();
+  ctx.shadowColor = '#713bff';
+  ctx.shadowBlur = 34;
+  ctx.strokeStyle = '#713bff';
+  ctx.lineWidth = 8;
+  ctx.stroke();
+  ctx.restore();
+  lastPoint = {x, y};
+  hasMarks = true;
+  document.querySelector('#canvasGuide').classList.add('hidden');
+}
+
+canvas.addEventListener('pointerdown', event => {
+  drawing = true; lastPoint = null;
+  canvas.setPointerCapture(event.pointerId);
+  const p = pointFrom(event);
+  drawGlow(p.x, p.y);
+});
+canvas.addEventListener('pointermove', event => {
+  if(!drawing) return;
+  const p = pointFrom(event);
+  drawGlow(p.x, p.y);
+});
+function stopDrawing() { drawing = false; lastPoint = null; }
+canvas.addEventListener('pointerup', stopDrawing);
+canvas.addEventListener('pointercancel', stopDrawing);
+canvas.addEventListener('pointerleave', () => { if(drawing) stopDrawing(); });
+
+// 清除所有畫布軌跡與貼圖
+document.querySelector('#clearCanvas').addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  document.querySelectorAll('.sticker-layer').forEach(el => el.remove());
+  selectSticker(null);
+  hasMarks = false;
+  stickerPicker.classList.remove('show');
+  stickerToggleBtn.classList.remove('active');
+  document.querySelector('#canvasGuide').classList.remove('hidden');
+});
+
+// 確認上傳：合成為光雕特效素材並展示在下方展示庫中
+const confirmUploadBtn = document.querySelector('#confirmUploadBtn');
+const effectsShelfList = document.querySelector('#effectsShelfList');
+const shelfEmptyText = document.querySelector('#shelfEmptyText');
+const assetCountTag = document.querySelector('#assetCountTag');
+let uploadedCount = 0;
+
+confirmUploadBtn.addEventListener('click', () => {
+  const stickers = document.querySelectorAll('.sticker-layer');
+  if (!hasMarks && stickers.length === 0) {
+    const promptTitle = document.querySelector('#zonePromptTitle');
+    promptTitle.textContent = "請先畫上光軌或加上貼圖再上傳喔！";
+    return;
+  }
+
+  // 建立離線 Canvas 進行疊合
+  const compositeCanvas = document.createElement('canvas');
+  compositeCanvas.width = canvas.width;
+  compositeCanvas.height = canvas.height;
+  const compCtx = compositeCanvas.getContext('2d');
+
+  // 底色 (深黑帶微光)
+  compCtx.fillStyle = '#101216';
+  compCtx.fillRect(0, 0, compositeCanvas.width, compositeCanvas.height);
+
+  // 繪製手繪光流軌跡
+  compCtx.drawImage(canvas, 0, 0);
+
+  // 繪製所有貼圖 DOM 元素至合成圖
+  const rect = canvasContainer.getBoundingClientRect();
+  const ratio = compositeCanvas.width / rect.width;
+
+  const drawStickersPromises = Array.from(stickers).map(st => {
+    return new Promise((resolve) => {
+      const stWidth = parseFloat(st.style.width) * ratio;
+      const stHeight = parseFloat(st.style.height) * ratio;
+      const stLeft = parseFloat(st.style.left) * ratio;
+      const stTop = parseFloat(st.style.top) * ratio;
+
+      const img = st.querySelector('img');
+      const svg = st.querySelector('svg');
+
+      if (img) {
+        const renderImg = new Image();
+        renderImg.onload = () => {
+          compCtx.drawImage(renderImg, stLeft - stWidth / 2, stTop - stHeight / 2, stWidth, stHeight);
+          resolve();
+        };
+        renderImg.src = img.src;
+      } else if (svg) {
+        const svgData = new XMLSerializer().serializeToString(svg);
+        const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+        const URL = window.URL || window.webkitURL || window;
+        const blobURL = URL.createObjectURL(svgBlob);
+        const svgImg = new Image();
+        svgImg.onload = () => {
+          compCtx.drawImage(svgImg, stLeft - stWidth / 2, stTop - stHeight / 2, stWidth, stHeight);
+          URL.revokeObjectURL(blobURL);
+          resolve();
+        };
+        svgImg.src = blobURL;
+      } else {
+        resolve();
+      }
+    });
+  });
+
+  Promise.all(drawStickersPromises).then(() => {
+    const finalDataURL = compositeCanvas.toDataURL('image/png');
+    uploadedCount++;
+
+    if (shelfEmptyText) shelfEmptyText.style.display = 'none';
+    assetCountTag.textContent = `${uploadedCount} 個素材已同步`;
+
+    // 新增素材展示卡
+    const shelfItem = document.createElement('div');
+    shelfItem.className = 'shelf-item';
+    shelfItem.innerHTML = `
+      <img src="${finalDataURL}" alt="光雕特效素材 #${uploadedCount}">
+      <span class="tag">ASSET #${String(uploadedCount).padStart(2,'0')}</span>
+    `;
+    effectsShelfList.prepend(shelfItem);
+
+    // 視覺反饋
+    confirmUploadBtn.textContent = "已成功上傳 ✓";
+    confirmUploadBtn.style.background = "var(--green)";
+    setTimeout(() => {
+      confirmUploadBtn.textContent = "確認上傳 🚀";
+      confirmUploadBtn.style.background = "";
+    }, 1800);
+
+    // 更新下方提示
+    document.querySelector('#zonePromptTitle').textContent = `🎉 特效素材 #${uploadedCount} 已成功上傳！`;
+    document.querySelector('#zonePrompt').textContent = "您的創作已正式匯入 360° 光雕投影系統，待體驗者做動作時將即時作為放射狀粒子噴發！";
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!stickerPicker.contains(e.target) && e.target !== stickerToggleBtn) {
+    stickerPicker.classList.remove('show');
+    stickerToggleBtn.classList.remove('active');
+  }
+});
+
+new ResizeObserver(resizeCanvas).observe(wrap);
+resizeCanvas();
+
+/* 手機版導覽選單 */
+const nav = document.querySelector('.nav'), menuButton = document.querySelector('.menu-toggle');
+menuButton.addEventListener('click', () => {
+  const open = nav.classList.toggle('menu-open');
+  menuButton.setAttribute('aria-expanded', String(open));
+});
+nav.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('menu-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}));
+</script>
+</body>
+</html>
