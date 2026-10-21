@@ -1133,7 +1133,7 @@ button{font:inherit;cursor:pointer}
 </style>
 </head>
 <body>
-  <!-- 音訊播放器：預設尋找 music.mp3，同時支援程式生成歡樂鋼琴音樂 -->
+  <!-- 音訊播放器：預設尋找 music.mp3，同時支援程式生成音樂 -->
   <audio id="bgmAudio" src="music.mp3" loop preload="auto"></audio>
 
   <div class="site-warning">
@@ -1143,7 +1143,7 @@ button{font:inherit;cursor:pointer}
   
   <header class="nav">
     <a class="brand" href="#top">
-      <span class="brand-icon">✳</span>解壓大作戰
+      解壓大作戰
       <small>DAILY DE-STRESS OPERATION</small>
     </a>
     <nav>
@@ -1179,7 +1179,7 @@ button{font:inherit;cursor:pointer}
       <div class="hero-main">
         <div class="hero-copy">
           <p class="eyebrow"><i></i> MOVE A LITTLE. FEEL A LOT.</p>
-          <h1>日常解壓<br><span>大作戰<span class="title-star">✳</span></span></h1>
+          <h1>日常解壓<br><span>大作戰</span></h1>
           <p class="hero-lead">看見體內緊繃，<br>一動，身體就發光。</p>
           <p class="hero-desc">久坐、低頭、單肩負重——把日常累積的隱形疲勞化成看得見的光，在臺中綠美圖做 30 秒微伸展，讓緊繃在 360° 光雕展場裡融解、釋放、流動。</p>
           <div class="hero-ctas">
@@ -1545,7 +1545,7 @@ button{font:inherit;cursor:pointer}
         </article>
         <article class="journey-card" id="journeyStepB">
           <div class="journey-code">B<button type="button" class="journey-arrow-btn" data-step="B" title="前往下一步：日常能量補給站">→</button></div>
-          <div class="journey-art art-b"><span class="wall-figure">✳</span><i>360°</i></div>
+          <div class="journey-art art-b"><i>360°</i></div>
           <h3>360° 光雕體驗</h3>
           <p>1:1 光之剪影投射在白牆上，依序完成 3 大微運動任務，觸發全場震撼光雕釋放。</p>
           <small>12 台雷射投影 / 4 台深度相機</small>
@@ -1572,7 +1572,6 @@ button{font:inherit;cursor:pointer}
       <div class="release-grid"></div>
       <p class="eyebrow"><i></i> WHEN THE BODY MOVES, THE ROOM RESPONDS</p>
       <h2>紅色緊繃，<br>碎成一場<span>金綠色的流光暴雨。</span></h2>
-      <div class="release-burst">✳</div>
       <div class="release-ribbons"><i></i><i></i><i></i><i></i><i></i></div>
       <p class="release-note">動作達標瞬間 → 剪影內部暗紅光斑瓦解 → 溫潤金色與松綠流體光波噴湧而出，順著展牆與天花板，貫通地面臺中動脈路網。</p>
     </section>
@@ -1644,7 +1643,6 @@ button{font:inherit;cursor:pointer}
 
     <footer class="footer">
       <div class="footer-top">
-        <span class="footer-symbol">✳</span>
         <div>
           <p class="eyebrow">DAILY DE-STRESS OPERATION</p>
           <h2>動一下，<em>身體就發光。</em></h2>
@@ -1787,19 +1785,19 @@ function toggleAudio() {
       playPromise.then(() => {
         isMusicPlaying = true;
         soundToggleBtn.classList.add('playing');
-        soundText.textContent = "鋼琴音樂 ON";
+        soundText.textContent = "音樂 ON";
       }).catch(() => {
         // 若找不到實體檔案，直接無縫切換至歡樂鋼琴程式合成音樂
         startProceduralPianoLoop();
         isMusicPlaying = true;
         soundToggleBtn.classList.add('playing');
-        soundText.textContent = "鋼琴音樂 ON";
+        soundText.textContent = "音樂 ON";
       });
     } else {
       startProceduralPianoLoop();
       isMusicPlaying = true;
       soundToggleBtn.classList.add('playing');
-      soundText.textContent = "鋼琴音樂 ON";
+      soundText.textContent = "音樂 ON";
     }
   } else {
     // 關閉音樂
@@ -1807,7 +1805,7 @@ function toggleAudio() {
     stopProceduralPianoLoop();
     isMusicPlaying = false;
     soundToggleBtn.classList.remove('playing');
-    soundText.textContent = "鋼琴音樂 OFF";
+    soundText.textContent = "音樂 OFF";
   }
 }
 
