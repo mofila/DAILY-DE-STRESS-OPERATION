@@ -1213,7 +1213,7 @@ button{font:inherit;cursor:pointer}
       <div class="hero-main">
         <div class="hero-copy">
           <p class="eyebrow"><i></i> MOVE A LITTLE. FEEL A LOT.</p>
-          <h1>日常解壓<br><span>大作戰<span class="title-star">✳</span></span></h1>
+          <h1>日常解壓<br><span>大作戰</span></h1>
           <p class="hero-lead">看見體內緊繃，<br>一動，身體就發光。</p>
           <p class="hero-desc">久坐、低頭、單肩負重——把日常累積的隱形疲勞化成看得見的光，在臺中綠美圖做 30 秒微伸展，讓緊繃在 360° 光雕展場裡融解、釋放、流動。</p>
           <div class="hero-ctas">
@@ -1606,7 +1606,6 @@ button{font:inherit;cursor:pointer}
       <div class="release-grid"></div>
       <p class="eyebrow"><i></i> WHEN THE BODY MOVES, THE ROOM RESPONDS</p>
       <h2>紅色緊繃，<br>碎成一場<span>金綠色的流光暴雨。</span></h2>
-      <div class="release-burst">✳</div>
       <div class="release-ribbons"><i></i><i></i><i></i><i></i><i></i></div>
       <p class="release-note">動作達標瞬間 → 剪影內部暗紅光斑瓦解 → 溫潤金色與松綠流體光波噴湧而出，順著展牆與天花板，貫通地面臺中動脈路網。</p>
     </section>
@@ -1678,7 +1677,6 @@ button{font:inherit;cursor:pointer}
 
     <footer class="footer">
       <div class="footer-top">
-        <span class="footer-symbol">✳</span>
         <div>
           <p class="eyebrow">DAILY DE-STRESS OPERATION</p>
           <h2>動一下，<em>身體就發光。</em></h2>
@@ -1845,6 +1843,49 @@ function toggleAudio() {
   }
 }
 
+// 專門用於「啟動播放」的函式
+function playMusicAuto() {
+  if (isMusicPlaying) return;
+
+  bgmAudio.volume = 0.5;
+  const playPromise = bgmAudio.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      // 實體音檔播放成功
+      isMusicPlaying = true;
+      soundToggleBtn.classList.add('playing');
+      soundText.textContent = "音樂 ON";
+    }).catch(() => {
+      // 若檔案不存在或瀏覽器限制，嘗試啟動合成鋼琴音樂
+      startProceduralPianoLoop();
+      isMusicPlaying = true;
+      soundToggleBtn.classList.add('playing');
+      soundText.textContent = "音樂 ON";
+    });
+  }
+}
+
+// 1. 頁面載入時嘗試立即播放
+window.addEventListener('DOMContentLoaded', () => {
+  playMusicAuto();
+});
+
+// 2. 備援機制：使用者點擊/觸控頁面任意位置，立即啟動播放（僅觸發一次）
+function handleFirstUserInteraction() {
+  if (!isMusicPlaying) {
+    playMusicAuto();
+  }
+  // 觸發後立即移除監聽器，避免後續點擊重複觸發
+  window.removeEventListener('click', handleFirstUserInteraction);
+  window.removeEventListener('touchstart', handleFirstUserInteraction);
+  window.removeEventListener('pointerdown', handleFirstUserInteraction);
+}
+
+window.addEventListener('click', handleFirstUserInteraction, { once: true });
+window.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
+window.addEventListener('pointerdown', handleFirstUserInteraction, { once: true });
+  
 if (soundToggleBtn) {
   soundToggleBtn.addEventListener('click', toggleAudio);
 }
