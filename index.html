@@ -1821,19 +1821,19 @@ function toggleAudio() {
       playPromise.then(() => {
         isMusicPlaying = true;
         soundToggleBtn.classList.add('playing');
-        soundText.textContent = "鋼琴音樂 ON";
+        soundText.textContent = "音樂 ON";
       }).catch(() => {
         // 若找不到實體檔案，直接無縫切換至歡樂鋼琴程式合成音樂
         startProceduralPianoLoop();
         isMusicPlaying = true;
         soundToggleBtn.classList.add('playing');
-        soundText.textContent = "鋼琴音樂 ON";
+        soundText.textContent = "音樂 ON";
       });
     } else {
       startProceduralPianoLoop();
       isMusicPlaying = true;
       soundToggleBtn.classList.add('playing');
-      soundText.textContent = "鋼琴音樂 ON";
+      soundText.textContent = "音樂 ON";
     }
   } else {
     // 關閉音樂
@@ -1841,7 +1841,7 @@ function toggleAudio() {
     stopProceduralPianoLoop();
     isMusicPlaying = false;
     soundToggleBtn.classList.remove('playing');
-    soundText.textContent = "鋼琴音樂 OFF";
+    soundText.textContent = "音樂 OFF";
   }
 }
 
