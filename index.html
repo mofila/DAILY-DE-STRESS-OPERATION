@@ -1337,7 +1337,7 @@ button{font:inherit;cursor:pointer}
 
     <!-- 跑馬燈 -->
     <section class="ticker" aria-label="企劃口號">
-      <div>久坐太久？ <b>動一下。</b>　低頭太久？ <b>動一下。</b>　側腰卡住？ <b>動一下。</b>　身體發光！ <em>MOVE · MELT · RELEASE ·</em>　久坐太久？ <b>動一下。</b>　低頭太久？ <b>動一下。</b>　側腰卡住？ <b>動一下。</b>　身體發光！ <em>MOVE · MELT · RELEASE ·</em>　</div>
+      <div>久坐太久？ <b>動一下。</b> 低頭太久？ <b>動一下。</b> 側腰卡住？ <b>動一下。</b> 身體發光！ <em>MOVE · MELT · RELEASE ·</em> 久坐太久？ <b>動一下。</b> 低頭太久？ <b>動一下。</b> 側腰卡住？ <b>動一下。</b> 身體發光！ <em>MOVE · MELT · RELEASE ·</em> </div>
     </section>
 
     <section class="idea section" id="origin">
@@ -1734,6 +1734,16 @@ const happyMelody = [
 
 let melodyStep = 0;
 
+// 確保 AudioContext 被合法喚醒並處於 running 狀態
+async function ensureAudioContextReady() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    await audioCtx.resume();
+  }
+}
+
 // 透過 Web Audio 模擬真實鋼琴清脆擊弦感與自然共振殘響（Attack + Multi-Harmonics + Decay）
 function playPianoKey(freq, duration = 0.5, volume = 0.18) {
   if (!audioCtx || audioCtx.state !== 'running') return;
@@ -1771,13 +1781,10 @@ function playPianoKey(freq, duration = 0.5, volume = 0.18) {
   osc2.stop(now + duration);
 }
 
-function startProceduralPianoLoop() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
+async function startProceduralPianoLoop() {
+  await ensureAudioContextReady();
+  if (!audioCtx || audioCtx.state !== 'running') return;
+  
   isProceduralPlaying = true;
   melodyStep = 0;
 
@@ -1810,29 +1817,34 @@ function stopProceduralPianoLoop() {
   }
 }
 
+// 統一的音樂啟動器：先測音檔，若無/被擋則無縫切換合成鋼琴
+async function playSoundEngine() {
+  if (isMusicPlaying) return;
+
+  bgmAudio.volume = 0.5;
+  try {
+    await bgmAudio.play();
+    isMusicPlaying = true;
+    soundToggleBtn.classList.add('playing');
+    soundText.textContent = "音樂 ON";
+  } catch (err) {
+    // 實體音檔無法自動播放或不存在時，啟動合成鋼琴
+    try {
+      await startProceduralPianoLoop();
+      if (isProceduralPlaying) {
+        isMusicPlaying = true;
+        soundToggleBtn.classList.add('playing');
+        soundText.textContent = "音樂 ON";
+      }
+    } catch (e) {
+      // 等候手勢喚醒
+    }
+  }
+}
+
 function toggleAudio() {
   if (!isMusicPlaying) {
-    // 優先檢測是否有實體音檔 music.mp3
-    bgmAudio.volume = 0.5;
-    const playPromise = bgmAudio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        isMusicPlaying = true;
-        soundToggleBtn.classList.add('playing');
-        soundText.textContent = "音樂 ON";
-      }).catch(() => {
-        // 若找不到實體檔案，直接無縫切換至歡樂鋼琴程式合成音樂
-        startProceduralPianoLoop();
-        isMusicPlaying = true;
-        soundToggleBtn.classList.add('playing');
-        soundText.textContent = "音樂 ON";
-      });
-    } else {
-      startProceduralPianoLoop();
-      isMusicPlaying = true;
-      soundToggleBtn.classList.add('playing');
-      soundText.textContent = "音樂 ON";
-    }
+    playSoundEngine();
   } else {
     // 關閉音樂
     bgmAudio.pause();
@@ -1843,49 +1855,25 @@ function toggleAudio() {
   }
 }
 
-// 專門用於「啟動播放」的函式
-function playMusicAuto() {
-  if (isMusicPlaying) return;
-
-  bgmAudio.volume = 0.5;
-  const playPromise = bgmAudio.play();
-
-  if (playPromise !== undefined) {
-    playPromise.then(() => {
-      // 實體音檔播放成功
-      isMusicPlaying = true;
-      soundToggleBtn.classList.add('playing');
-      soundText.textContent = "音樂 ON";
-    }).catch(() => {
-      // 若檔案不存在或瀏覽器限制，嘗試啟動合成鋼琴音樂
-      startProceduralPianoLoop();
-      isMusicPlaying = true;
-      soundToggleBtn.classList.add('playing');
-      soundText.textContent = "音樂 ON";
-    });
-  }
-}
-
-// 1. 頁面載入時嘗試立即播放
-window.addEventListener('DOMContentLoaded', () => {
-  playMusicAuto();
-});
-
-// 2. 備援機制：使用者點擊/觸控頁面任意位置，立即啟動播放（僅觸發一次）
+// 支援全域首次互動（點擊、觸控、按鍵、滾動）自動喚醒出聲
 function handleFirstUserInteraction() {
   if (!isMusicPlaying) {
-    playMusicAuto();
+    playSoundEngine();
   }
-  // 觸發後立即移除監聽器，避免後續點擊重複觸發
-  window.removeEventListener('click', handleFirstUserInteraction);
-  window.removeEventListener('touchstart', handleFirstUserInteraction);
-  window.removeEventListener('pointerdown', handleFirstUserInteraction);
+  const events = ['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'];
+  events.forEach(evt => window.removeEventListener(evt, handleFirstUserInteraction));
 }
 
-window.addEventListener('click', handleFirstUserInteraction, { once: true });
-window.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
-window.addEventListener('pointerdown', handleFirstUserInteraction, { once: true });
-  
+// 1. 頁面載入時嘗試播放（支援已授權音訊權限的瀏覽器）
+window.addEventListener('DOMContentLoaded', () => {
+  playSoundEngine();
+});
+
+// 2. 備援機制：頁面任何點擊/觸控/滾動操作立刻無感解鎖音樂
+['click', 'touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(evt => {
+  window.addEventListener(evt, handleFirstUserInteraction, { once: true, passive: true });
+});
+
 if (soundToggleBtn) {
   soundToggleBtn.addEventListener('click', toggleAudio);
 }
