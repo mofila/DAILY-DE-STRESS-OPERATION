@@ -29,6 +29,20 @@ body{margin:0;background:var(--paper);color:var(--black);font-family:var(--tc);c
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 
+/* 頂部固定整合容器 */
+.header-wrapper{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  z-index:100;
+  pointer-events:none;
+}
+.header-wrapper > *{
+  pointer-events:auto;
+}
+
 .site-warning{
   min-height:32px;
   background:var(--lime);
@@ -41,6 +55,10 @@ button{font:inherit;cursor:pointer}
   letter-spacing:.04em;
   flex-wrap:wrap;
   gap:4px;
+  transition:all .3s ease;
+}
+.header-wrapper.scrolled .site-warning{
+  opacity:0.92;
 }
 
 .nav{
@@ -51,11 +69,19 @@ button{font:inherit;cursor:pointer}
   justify-content:space-between;
   background:var(--black);
   color:white;
-  position:sticky;
-  top:0;
-  z-index:100;
   border-bottom:1px solid #444;
+  transition:background-color .35s ease, backdrop-filter .35s ease, -webkit-backdrop-filter .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
+
+/* 下滑時半透明毛玻璃效果 */
+.header-wrapper.scrolled .nav{
+  background:rgba(16, 16, 16, 0.78);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:rgba(255, 255, 255, 0.15);
+  box-shadow:0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
 .brand{font-weight:900;font-size:19px;letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
 .brand-icon{color:var(--lime);font-size:26px}
 .brand small{display:block;color:#aaa;font:500 11px var(--mono);letter-spacing:.04em;margin-left:8px;margin-top:2px}
@@ -1083,6 +1109,11 @@ button{font:inherit;cursor:pointer}
     padding-left:4vw;
     padding-right:4vw;
   }
+  .header-wrapper.scrolled .nav{
+    background:rgba(16, 16, 16, 0.88);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+  }
   .brand{font-size:17px}
   .brand small{display:none}
   .nav-actions{gap:6px}
@@ -1136,40 +1167,43 @@ button{font:inherit;cursor:pointer}
   <!-- 音訊播放器：預設尋找 music.mp3，同時支援程式生成音樂 -->
   <audio id="bgmAudio" src="music.mp3" loop preload="auto"></audio>
 
-  <div class="site-warning">
-    <span>企劃官網 · 這組有誠意（第三組）× TNDA 數位互動設計團隊</span>
-    <span>運動部 × 臺中市政府指導 · 2027 綠美圖特展</span>
-  </div>
-  
-  <header class="nav">
-    <a class="brand" href="#top">
-      解壓大作戰
-      <small>DAILY DE-STRESS OPERATION</small>
-    </a>
-    <nav>
-      <a href="#origin">企劃緣起</a>
-      <a href="#idea">核心概念</a>
-      <a href="#play">互動預演</a>
-      <a href="#missions">三大關卡</a>
-      <a href="#journey">單向旅程</a>
-      <a href="#impact">推廣效益</a>
-    </nav>
-    <div class="nav-actions">
-      <!-- 音樂開關按鈕 -->
-      <button type="button" class="sound-toggle-btn" id="soundToggleBtn" title="點擊切換音樂">
-        <span class="sound-waves" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-        <span id="soundText">音樂 OFF</span>
-      </button>
-
-      <a class="nav-button budget-btn" href="./budget.html" target="_blank" rel="noopener noreferrer"> 專案估價單 </a>
-      <a class="nav-button" href="https://mofila.github.io/city-pulse/" target="_blank" rel="noopener noreferrer">開啟模擬網站 </a>
+  <!-- 固定在最上方的整合頁首容器 -->
+  <div class="header-wrapper" id="headerWrapper">
+    <div class="site-warning">
+      <span>企劃官網 · 這組有誠意（第三組）× TNDA 數位互動設計團隊</span>
+      <span>運動部 × 臺中市政府指導 · 2027 綠美圖特展</span>
     </div>
-    <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
-  </header>
+    
+    <header class="nav">
+      <a class="brand" href="#top">
+        解壓大作戰
+        <small>DAILY DE-STRESS OPERATION</small>
+      </a>
+      <nav>
+        <a href="#origin">企劃緣起</a>
+        <a href="#idea">核心概念</a>
+        <a href="#play">互動預演</a>
+        <a href="#missions">三大關卡</a>
+        <a href="#journey">單向旅程</a>
+        <a href="#impact">推廣效益</a>
+      </nav>
+      <div class="nav-actions">
+        <!-- 音樂開關按鈕 -->
+        <button type="button" class="sound-toggle-btn" id="soundToggleBtn" title="點擊切換音樂">
+          <span class="sound-waves" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span id="soundText">音樂 OFF</span>
+        </button>
 
-  <main id="top">
+        <a class="nav-button budget-btn" href="./budget.html" target="_blank" rel="noopener noreferrer"> 專案估價單 </a>
+        <a class="nav-button" href="https://mofila.github.io/city-pulse/" target="_blank" rel="noopener noreferrer">開啟模擬網站 </a>
+      </div>
+      <button class="menu-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+    </header>
+  </div>
+
+  <main id="top" style="padding-top:calc(105px + env(safe-area-inset-top,0px));">
     <section class="hero">
       <div class="hero-grid-mark" aria-hidden="true"></div>
       <div class="hero-info">
@@ -1179,12 +1213,12 @@ button{font:inherit;cursor:pointer}
       <div class="hero-main">
         <div class="hero-copy">
           <p class="eyebrow"><i></i> MOVE A LITTLE. FEEL A LOT.</p>
-          <h1>日常解壓<br><span>大作戰</span></h1>
+          <h1>日常解壓<br><span>大作戰<span class="title-star">✳</span></span></h1>
           <p class="hero-lead">看見體內緊繃，<br>一動，身體就發光。</p>
           <p class="hero-desc">久坐、低頭、單肩負重——把日常累積的隱形疲勞化成看得見的光，在臺中綠美圖做 30 秒微伸展，讓緊繃在 360° 光雕展場裡融解、釋放、流動。</p>
           <div class="hero-ctas">
-            <a class="btn btn-lime" href="https://mofila.github.io/city-pulse/" target="_blank" rel="noopener noreferrer"> 互動網站 <span>↗</span></a>
-            <a class="btn btn-ghost" href="#origin"> More <span>↓</span></a>
+            <a class="btn btn-lime" href="https://mofila.github.io/city-pulse/" target="_blank" rel="noopener noreferrer">開啟模擬架設 <span>↗</span></a>
+            <a class="btn btn-ghost" href="#origin">認識企劃 <span>↓</span></a>
           </div>
         </div>
 
@@ -1545,7 +1579,7 @@ button{font:inherit;cursor:pointer}
         </article>
         <article class="journey-card" id="journeyStepB">
           <div class="journey-code">B<button type="button" class="journey-arrow-btn" data-step="B" title="前往下一步：日常能量補給站">→</button></div>
-          <div class="journey-art art-b"><i>360°</i></div>
+          <div class="journey-art art-b"><span class="wall-figure">✳</span><i>360°</i></div>
           <h3>360° 光雕體驗</h3>
           <p>1:1 光之剪影投射在白牆上，依序完成 3 大微運動任務，觸發全場震撼光雕釋放。</p>
           <small>12 台雷射投影 / 4 台深度相機</small>
@@ -1572,6 +1606,7 @@ button{font:inherit;cursor:pointer}
       <div class="release-grid"></div>
       <p class="eyebrow"><i></i> WHEN THE BODY MOVES, THE ROOM RESPONDS</p>
       <h2>紅色緊繃，<br>碎成一場<span>金綠色的流光暴雨。</span></h2>
+      <div class="release-burst">✳</div>
       <div class="release-ribbons"><i></i><i></i><i></i><i></i><i></i></div>
       <p class="release-note">動作達標瞬間 → 剪影內部暗紅光斑瓦解 → 溫潤金色與松綠流體光波噴湧而出，順著展牆與天花板，貫通地面臺中動脈路網。</p>
     </section>
@@ -1643,6 +1678,7 @@ button{font:inherit;cursor:pointer}
 
     <footer class="footer">
       <div class="footer-top">
+        <span class="footer-symbol">✳</span>
         <div>
           <p class="eyebrow">DAILY DE-STRESS OPERATION</p>
           <h2>動一下，<em>身體就發光。</em></h2>
@@ -1785,19 +1821,19 @@ function toggleAudio() {
       playPromise.then(() => {
         isMusicPlaying = true;
         soundToggleBtn.classList.add('playing');
-        soundText.textContent = "音樂 ON";
+        soundText.textContent = "鋼琴音樂 ON";
       }).catch(() => {
         // 若找不到實體檔案，直接無縫切換至歡樂鋼琴程式合成音樂
         startProceduralPianoLoop();
         isMusicPlaying = true;
         soundToggleBtn.classList.add('playing');
-        soundText.textContent = "音樂 ON";
+        soundText.textContent = "鋼琴音樂 ON";
       });
     } else {
       startProceduralPianoLoop();
       isMusicPlaying = true;
       soundToggleBtn.classList.add('playing');
-      soundText.textContent = "音樂 ON";
+      soundText.textContent = "鋼琴音樂 ON";
     }
   } else {
     // 關閉音樂
@@ -1805,7 +1841,7 @@ function toggleAudio() {
     stopProceduralPianoLoop();
     isMusicPlaying = false;
     soundToggleBtn.classList.remove('playing');
-    soundText.textContent = "音樂 OFF";
+    soundText.textContent = "鋼琴音樂 OFF";
   }
 }
 
@@ -2446,6 +2482,18 @@ nav.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () 
   nav.classList.remove('menu-open');
   menuButton.setAttribute('aria-expanded', 'false');
 }));
+
+// 監聽滾動事件：下滑時頁首切換為半透明毛玻璃效果
+const headerWrapper = document.querySelector('#headerWrapper');
+function handleHeaderScroll() {
+  if (window.scrollY > 25) {
+    headerWrapper.classList.add('scrolled');
+  } else {
+    headerWrapper.classList.remove('scrolled');
+  }
+}
+window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+handleHeaderScroll();
 </script>
 </body>
 </html>
